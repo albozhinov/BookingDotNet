@@ -1,6 +1,6 @@
 ﻿namespace HotelManagement.Contracts
 {
-    public interface IRoom
+    public interface IRoom : IAccomodationProperty
     {
     }
 }
