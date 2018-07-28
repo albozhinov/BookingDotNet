@@ -4,7 +4,9 @@ using System.Text;
 
 namespace HotelManagement.Contracts
 {
-    class ICompleteEstate
+    public interface ICompleteEstate : IAccomodationProperty
     {
+        int Bedrooms { get; }
+        int Bathrooms { get; }
     }
 }

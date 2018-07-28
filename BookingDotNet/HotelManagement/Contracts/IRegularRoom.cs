@@ -1,6 +1,7 @@
 ﻿namespace HotelManagement.Contracts
 {
-    public interface RegularRoom : IRoom
+    public interface IRegularRoom : IRoom
     {
+
     }
 }

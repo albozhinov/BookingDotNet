@@ -2,5 +2,6 @@
 {
     public interface IVilla : ICompleteEstate
     {
+        int NumberOfFloors { get; }
     }
 }

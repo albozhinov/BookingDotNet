@@ -2,6 +2,6 @@
 {
     public interface IApartment : ICompleteEstate
     {
-
+        bool FullyQuipped { get; }
     }
 }
