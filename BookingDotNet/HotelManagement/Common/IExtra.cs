@@ -4,11 +4,9 @@ using System.Text;
 
 namespace HotelManagement.Common
 {
-    public enum VillaExtras
+    public interface IExtra
     {
-        Pool,
-        Garden,
-        VideoGameRoom,
-        BBQ
+        public int Tier;
+
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Utility
 {
-    public class Validation
+    public static class Validation
     {
         public static void NumberBorderCheck<T>(T minCap, T maxCap, T givenCap, string errMessage)
             where T : IComparable<T>
