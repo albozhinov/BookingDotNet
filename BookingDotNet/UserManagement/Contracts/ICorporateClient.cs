@@ -2,7 +2,7 @@
 {
     public interface ICorporateClient : IClient
     {
-        string name { get; }
-        string numberOfEmployees { get; }
+        string Name { get; }
+        int NumberOfEmployees { get; }
     }
 }
