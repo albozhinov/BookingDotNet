@@ -5,28 +5,17 @@ using UserManagement.Contracts;
 
 namespace UserManagement.Models
 {
-    class CorporateLoyal: ICorporateClient
+    class CorporateLoyal: Corporate, ICorporateClient
     {
         decimal discount;
 
-        public CorporateLoyal(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits, 
-            string telephoneNumber, string email)
+        public CorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
+             string telephoneNumber, string email)
+            :base(name, numberOfEmployees, registeredOn, numberOfEmployees, telephoneNumber, email)
         {
-            this.Name = name;
-            this.NumberOfEmployees = numberOfEmployees;
-            this.
+            this.Discount = discount;
         }
 
-        public string Name { get; set; }
-
-        public int NumberOfEmployees{ get; set; }
-
-        public DateTime RegisteredOn{ get; set; }
-
-        public int NumberOfVisits{ get; set; }
-
-        public string TelephoneNumber{ get; set; }
-
-        public string Email{ get; set; }
+        public decimal Discount { get; set; }
     }
 }
