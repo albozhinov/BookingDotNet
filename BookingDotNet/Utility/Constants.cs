@@ -23,5 +23,6 @@
         public const string villaBedrooms = "A villa cannot have less than 1 or more than 3 bedrooms.";
         public const string villaBathrooms = "A villa cannot have less than 1 or more than 3 bathrooms.";
         public const string numberOfEmployees = "A corporate client cannot have a negative number of employees.";
+        public const string numberOfFloors = "A hotel cannot have less than 1 or more than 15 floors";
     }
 }
