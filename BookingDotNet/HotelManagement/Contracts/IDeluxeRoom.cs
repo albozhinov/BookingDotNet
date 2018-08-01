@@ -5,6 +5,6 @@ namespace HotelManagement.Contracts
 {
     public interface IDeluxeRoom : IRoom
     {
-        List<IExtra> ListOfDeluxeExtras { get; }
+        
     }
 }

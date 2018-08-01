@@ -20,5 +20,9 @@
         public const string regularRoomCapacity = "The capacity of the regular room cannot be less than 1 and more than 2 people";
         public const string regularRoomBeds = "The beds in a regular room cannot be less than 1 and more than 2";
         public const string regularRoomExtra = "The extras in a regular room cannot be from a tier higher than 1";
+
+        public const string deluxeRoom = "The extras in a regular room cannot be from a higher tier than 2";
+
+
     }
 }
