@@ -44,6 +44,13 @@ namespace HotelManagement.Models
 
         public List<IExtra> ListOfExtras => throw new NotImplementedException();
 
+        public decimal BasePrice => throw new NotImplementedException();
+
+        public void AddExtra(IExtra extra)
+        {
+            throw new NotImplementedException();
+        }
+
         public decimal CalculatePrice()
         {
             throw new NotImplementedException();
