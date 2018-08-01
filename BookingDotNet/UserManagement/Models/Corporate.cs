@@ -32,13 +32,33 @@ namespace UserManagement.Models
             }
             set
             {
-                Validation.StringLengthCheck(3, 20, value, "");
+                Validation.StringLengthCheck(3, 20, value,"");
                 this.name = value;
             }
         }
-        public int NumberOfEmployees { get; set; }
+        public int NumberOfEmployees {
+            get
+            {
+                return this.numberOfEmployees;
+            }
+            set
+            {
+                Validation.CantBeZero(value, "");
+                this.numberOfEmployees = value;
+            }
+        }
         public DateTime RegisteredOn { get; set; }
-        public int NumberOfVisits { get; set; }
+        public int NumberOfVisits {
+        get
+            {
+                return this.numberOfVisits;
+            }
+            set
+            {
+                Validation.CantBeZero(value, "");
+                this.numberOfVisits = value;
+            }
+        }
         public string TelephoneNumber
         {
             get

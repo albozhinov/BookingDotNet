@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UserManagement.Contracts;
+using Utility;
 
 namespace UserManagement.Models
 {
@@ -16,6 +17,17 @@ namespace UserManagement.Models
             this.Discount = discount;
         }
 
-        public decimal Discount { get; set; }
+        public decimal Discount
+        {
+            get
+            {
+                return this.discount;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(0.05m, 0.2m, value, "");
+                this.discount = value;
+            }
+        }
     }
 }
