@@ -33,8 +33,34 @@ namespace HotelManagement.Models
                 this.numberOfFloors = value;
             }
         }
-        public int Bedrooms {get;set;}
-        public int Bathrooms { get; set; }
+        public int Bedrooms
+        {
+            get
+            {
+                return this.bedrooms;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 3, value, Constants.villaBedrooms);
+                this.bedrooms = value;
+            }
+        }
+        public int Bathrooms
+        {
+            get
+            {
+                return this.bathrooms;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 3, value, Constants.villaBathrooms);
+                this.bathrooms = value;
+            }
+        }
 
+        public override void AddExtra(IExtra extra)
+        {
+            base.AddExtra(extra);
+        }
     }
 }

@@ -32,30 +32,32 @@ namespace UserManagement.Models
             }
             set
             {
-                Validation.StringLengthCheck(3, 20, value,"");
+                Validation.StringLengthCheck(3, 20, value, "");
                 this.name = value;
             }
         }
-        public int NumberOfEmployees {
+        public int NumberOfEmployees
+        {
             get
             {
                 return this.numberOfEmployees;
             }
             set
             {
-                Validation.CantBeZero(value, "");
+                Validation.CantBeZero(value, Constants.numberOfEmployees);
                 this.numberOfEmployees = value;
             }
         }
         public DateTime RegisteredOn { get; set; }
-        public int NumberOfVisits {
-        get
+        public int NumberOfVisits
+        {
+            get
             {
                 return this.numberOfVisits;
             }
             set
             {
-                Validation.CantBeZero(value, "");
+                Validation.CantBeZero(value, Constants.numberOfVisits);
                 this.numberOfVisits = value;
             }
         }
@@ -71,6 +73,17 @@ namespace UserManagement.Models
                 this.telephoneNumber = value;
             }
         }
-        public string Email { get; set; }
+        public string Email
+        {
+            get
+            {
+                return this.email;
+            }
+            set
+            {
+                Validation.StringLengthCheck(8, 20, value, Constants.email);
+                this.email = value;
+            }
+        }
     }
 }
