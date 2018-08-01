@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 using UserManagement.Contracts;
+using Utility;
 
 namespace UserManagement.Models
 {
-    public class NaturalLoyal : INaturalClient
+    public class NaturalLoyal : Natural, INaturalClient
     {
         // Fields
         private decimal discount;
-        privat
 
-        public string firstName => throw new NotImplementedException();
+        public NaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn, int numberOfVisits, string telephoneNimber, string email, decimal distcount)
+            : base(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNimber, email)
+        {
+            this.Discount = distcount;
+        }
 
-        public string lastName => throw new NotImplementedException();
-
-        public DateTime dateOfBirth => throw new NotImplementedException();
-
-        public DateTime registeredOn => throw new NotImplementedException();
-
-        public int numberOfVisits => throw new NotImplementedException();
-
-        public string telephoneNumber => throw new NotImplementedException();
-
-        public string email => throw new NotImplementedException();
+        // Properties
+        public decimal Discount
+        {
+            get => this.discount;
+            set
+            {
+                Validation.NumberBorderCheck(0.05M, 0.2M, value, Constants.discount);
+            }
+        }
     }
 }

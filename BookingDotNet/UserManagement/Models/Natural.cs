@@ -18,9 +18,15 @@ namespace UserManagement.Models
         private string email;
 
         // Constructor
-        public Natural()
+        public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn, int numberOfVisits, string telephoneNimber, string email)
         {
-
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.DateOfBirth = dateOfBirth;
+            this.RegisteredOn = registeredOn;
+            this.NumberOfVisits = numberOfVisits;
+            this.TelephoneNumber = telephoneNimber;
+            this.Email = email;
         }
 
         // Properties
@@ -29,7 +35,7 @@ namespace UserManagement.Models
             get => this.firstName;
             set
             {
-                Validation.StringLengthCheck(2, 15, value, errMessage);
+                Validation.StringLengthCheck(2, 15, value, Constants.userName);
                 this.firstName = value;
             }
         }
@@ -39,7 +45,7 @@ namespace UserManagement.Models
             get => this.lastName;
             set
             {
-                Validation.StringLengthCheck(2, 15, value, errMessage);
+                Validation.StringLengthCheck(2, 15, value, Constants.userName);
             }
         }
 
@@ -48,7 +54,7 @@ namespace UserManagement.Models
             get => this.dateOfBirth;
             set
             {
-
+                this.dateOfBirth = value;
             }
         }        
         
@@ -57,7 +63,7 @@ namespace UserManagement.Models
             get => this.registeredOn;
             set
             {
-
+                this.registeredOn = value;
             }
         }
 
@@ -66,7 +72,8 @@ namespace UserManagement.Models
             get => this.numberOfVisits;
             set
             {
-
+                Validation.CantBeZero(value, Constants.numberOfVisits);
+                this.numberOfVisits = value;
             }
         }
 
@@ -75,7 +82,8 @@ namespace UserManagement.Models
             get => this.telephoneNumber;
             set
             {
-
+                Validation.StringLengthCheck(8, 12, value, Constants.telNo);
+                this.telephoneNumber = value;
             }
         }
 
@@ -84,7 +92,7 @@ namespace UserManagement.Models
             get => this.email;
             set
             {
-
+                this.email = value;
             }
         }
     }
