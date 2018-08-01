@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using UserManagement.Contracts;
+using Utility;
 
 namespace UserManagement.Models
 {
@@ -24,12 +23,23 @@ namespace UserManagement.Models
             this.TelephoneNumber = telephoneNumber;
             this.Email = email;
          }
+
         public string Name { get; set; }
         public int NumberOfEmployees { get; set; }
         public DateTime RegisteredOn { get; set; }
         public int NumberOfVisits { get; set; }
-        public string TelephoneNumber { get; set; }
+        public string TelephoneNumber
+        {
+            get
+            {
+                return this.telephoneNumber;
+            }
+            set
+            {
+                Validation.StringLengthCheck(8, 12, value, Constants.telNo);
+                this.telephoneNumber = value;
+            }
+        }
         public string Email { get; set; }
-
     }
 }
