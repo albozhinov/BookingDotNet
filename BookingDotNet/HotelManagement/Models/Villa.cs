@@ -22,7 +22,7 @@ namespace HotelManagement.Models
 
         private ViewType View ;
 
-        private List<RegularExtras> ListOfExtras ;
+        private List<IExtra> ListOfExtras ;
 
         public decimal CalculatePrice()
         {

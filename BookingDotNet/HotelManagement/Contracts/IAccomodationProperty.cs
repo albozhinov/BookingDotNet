@@ -9,7 +9,7 @@ namespace HotelManagement.Contracts
         int Beds { get; }
         bool ForSmokers { get; }
         ViewType View { get; }
-        List<RegularExtras> ListOfExtras { get; }
+        List<IExtra> ListOfExtras { get; }
         decimal CalculatePrice();
 
 

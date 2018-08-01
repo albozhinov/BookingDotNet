@@ -18,7 +18,7 @@ namespace HotelManagement.Models
 
         public ViewType View => throw new NotImplementedException();
 
-        public List<RegularExtras> ListOfExtras => throw new NotImplementedException();
+        public List<IExtra> ListOfExtras => throw new NotImplementedException();
 
         public decimal CalculatePrice()
         {
