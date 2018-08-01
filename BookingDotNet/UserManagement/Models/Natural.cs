@@ -5,15 +5,20 @@ using UserManagement.Contracts;
 
 namespace UserManagement.Models
 {
-    public class NaturalLoyal : INaturalClient
+    public abstract class Natural : INaturalClient
     {
         // Fields
-        private decimal discount;
-        privat
+        private string firstName;
+        private string lastName;
+        private DateTime dateOfBirth;
+        private DateTime registeredOn;
+        private int numberOfVisits;
+        private string email;
 
-        public string firstName => throw new NotImplementedException();
 
-        public string lastName => throw new NotImplementedException();
+        public string FirstName => throw new NotImplementedException();
+
+        public string LastName => throw new NotImplementedException();
 
         public DateTime dateOfBirth => throw new NotImplementedException();
 
