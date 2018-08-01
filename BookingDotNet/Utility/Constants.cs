@@ -6,6 +6,7 @@
         public const string priceCannotBeNegative = "The price of the room cannot be less than 0.";
         public const string userName = "The username cannot be less than 2 characters and more than 15 characters long.";
         public const string extraTier = "The tier of the extras should be between 1 and 4.";
+        public const string extraTierApart = "The extras in a regular room cannot be from a tier higher than 3";
         public const string tierPriceCannotBeZero = "An extra cannot have a negative price.";
         public const string commonCapacity = "The capacity must be a number between 1 and 10.";
         public const string commonBeds = "The amount of beds must be a number between 1 and 10.";
@@ -23,5 +24,8 @@
         public const string villaBedrooms = "A villa cannot have less than 1 or more than 3 bedrooms.";
         public const string villaBathrooms = "A villa cannot have less than 1 or more than 3 bathrooms.";
         public const string numberOfEmployees = "A corporate client cannot have a negative number of employees.";
+        public const string apartmentBedrooms = "The apartment cannot have less than 2 or more than 3 bedrooms.";
+        public const string apartmentBathrooms = "The apartment cannot have less than 1 or more than 3 bathrooms.";
+        public const string apartmentFloor = "The apartment floor cannot be negative.";
     }
 }

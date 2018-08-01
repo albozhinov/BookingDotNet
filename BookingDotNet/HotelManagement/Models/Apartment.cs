@@ -16,9 +16,14 @@ namespace HotelManagement.Models
         private int onFloor;
 
         // Constructor
-        public Apartment()
+        public Apartment(int capacity, int beds, bool forSmokers, string view, decimal basePrice,
+            bool fullyQuipped, int bedrooms, int bathrooms, int onFloor)
+            : base (capacity, bedrooms, forSmokers, view, basePrice)
         {
-
+            this.FullyQuipped = fullyQuipped;
+            this.Bedrooms = bedrooms;
+            this.Bathrooms = bathrooms;
+            this.OnFloor = onFloor;
         }
 
         // Properties
@@ -33,6 +38,7 @@ namespace HotelManagement.Models
             get => this.bedrooms;
             set
             {
+                Validation.NumberBorderCheck(2, 3, value, Constants.apartmentBedrooms);
                 this.bedrooms = value;
             }
         }
@@ -42,6 +48,7 @@ namespace HotelManagement.Models
             get => this.bathrooms;
             set
             {
+                Validation.NumberBorderCheck(1, 3, value, Constants.apartmentBathrooms);
                 this.bathrooms = value;
             }
         }
@@ -49,6 +56,17 @@ namespace HotelManagement.Models
         public int OnFloor
         {
             get => this.onFloor;
+            set
+            {
+                Validation.CantBeZero(value, Constants.apartmentFloor);
+                this.onFloor = value;
+            }
+        }
+
+        public override void AddExtra(IExtra extra)
+        {
+            Validation.NumberBorderCheck(1, 3, extra.Tier, Constants.extraTierApart);
+            base.AddExtra(extra);
         }
     }
 }

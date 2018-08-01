@@ -12,7 +12,8 @@ namespace UserManagement.Models
         private decimal discount;
 
         // Constructor
-        public NaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn, int numberOfVisits, string telephoneNimber, string email, decimal distcount)
+        public NaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
+                            int numberOfVisits, string telephoneNimber, string email, decimal distcount)
             : base(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNimber, email)
         {
             this.Discount = distcount;

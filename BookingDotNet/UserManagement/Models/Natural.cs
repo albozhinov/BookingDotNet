@@ -18,7 +18,8 @@ namespace UserManagement.Models
         private string email;
 
         // Constructor
-        public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn, int numberOfVisits, string telephoneNimber, string email)
+        public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
+                        int numberOfVisits, string telephoneNimber, string email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -92,6 +93,7 @@ namespace UserManagement.Models
             get => this.email;
             set
             {
+                Validation.StringLengthCheck(8, 20, value, Constants.email);
                 this.email = value;
             }
         }
