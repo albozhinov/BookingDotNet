@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UserManagement.Contracts;
+using Utility;
 
 namespace UserManagement.Models
 {
@@ -13,21 +14,78 @@ namespace UserManagement.Models
         private DateTime dateOfBirth;
         private DateTime registeredOn;
         private int numberOfVisits;
+        private string telephoneNumber;
         private string email;
 
+        // Constructor
+        public Natural()
+        {
 
-        public string FirstName => throw new NotImplementedException();
+        }
 
-        public string LastName => throw new NotImplementedException();
+        // Properties
+        public string FirstName
+        {
+            get => this.firstName;
+            set
+            {
+                Validation.StringLengthCheck(2, 15, value, errMessage);
+                this.firstName = value;
+            }
+        }
 
-        public DateTime dateOfBirth => throw new NotImplementedException();
+        public string LastName
+        {
+            get => this.lastName;
+            set
+            {
+                Validation.StringLengthCheck(2, 15, value, errMessage);
+            }
+        }
 
-        public DateTime registeredOn => throw new NotImplementedException();
+        public DateTime DateOfBirth
+        {
+            get => this.dateOfBirth;
+            set
+            {
 
-        public int numberOfVisits => throw new NotImplementedException();
+            }
+        }        
+        
+        public DateTime RegisteredOn
+        {
+            get => this.registeredOn;
+            set
+            {
 
-        public string telephoneNumber => throw new NotImplementedException();
+            }
+        }
 
-        public string email => throw new NotImplementedException();
+        public int NumberOfVisits
+        {
+            get => this.numberOfVisits;
+            set
+            {
+
+            }
+        }
+
+        public string TelephoneNumber
+        {
+            get => this.telephoneNumber;
+            set
+            {
+
+            }
+        }
+
+        public string Email
+        {
+            get => this.email;
+            set
+            {
+
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ using UserManagement.Contracts;
 
 namespace UserManagement.Models
 {
-    class Corporate : ICorporateClient
+    public abstract class Corporate : ICorporateClient
     {
         private string name;
         private int numberOfEmployees;
