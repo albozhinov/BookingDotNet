@@ -9,10 +9,11 @@ namespace HotelManagement.Common
         private AvailableExtras name;
         private decimal price;
 
-        public Extra(int tier, string extra, decimal price)
+        public Extra(int tier, AvailableExtras name, decimal price) : this()
         {
             this.Tier = tier;
-            this.Name = enum.TryParse
+            this.Name = name;
+            this.Price = price;
         }
 
         public int Tier
