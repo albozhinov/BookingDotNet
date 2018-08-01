@@ -47,6 +47,7 @@ namespace UserManagement.Models
             set
             {
                 Validation.StringLengthCheck(2, 15, value, Constants.userName);
+                this.lastName = value;
             }
         }
 
