@@ -26,6 +26,8 @@ namespace HotelManagement.Models
 
         public List<IAccomodationProperty> Rooms { get => new List<IAccomodationProperty>(this.rooms); }
 
+        //This method have to be totally written!!!
+
         public bool checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = new List<AvailableExtras>();
