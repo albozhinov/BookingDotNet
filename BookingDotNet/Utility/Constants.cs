@@ -9,6 +9,10 @@
         public const string userName = "The username cannot be less than 2 characters and more than 15 characters long";
         public const string extraTier = "The tier of the extras should be between 1 and 4";
         public const string tierPriceCannotBeZero = "An extra cannot have a negative price";
+        public const string commonCapacity = "The capacity must be a number between 1 and 10";
+        public const string commonBeds = "The amount of beds must be a number between 1 and 10";
+        public const string commonBasePrice = "The base price of a room should be a number between 50 and 400";
+
 
     }
 }
