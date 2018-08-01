@@ -7,5 +7,6 @@ namespace UserManagement.Models
     class Natural_Loyal
     {
         decimal discount;
+
     }
 }

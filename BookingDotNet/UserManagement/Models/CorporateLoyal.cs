@@ -4,7 +4,10 @@ using System.Text;
 
 namespace UserManagement.Models
 {
-    class Corporate_Regular
+    class CorporateLoyal
     {
+        decimal discount;
+
+        public CorporateLoyal
     }
 }
