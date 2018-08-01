@@ -8,21 +8,22 @@ namespace HotelManagement.Models
 {
     class Villa : IVilla
     {
-        private int NumberOfFloors;
+        private int numberOfFloors;
+        private int bedrooms;
+        private int bathrooms;
+        private int capacity;
+        private int beds;
+        private bool forSmokers;
+        private ViewType view;
+        private List<IExtra> listOfExtras;
 
-        private int Bedrooms ;
+        public Villa(int numberOfFloors, int bedrooms, int bathrooms, int capacity, int beds, bool forSmokers,
+            ViewType view, List<IExtra> listOfExtras)
+        {
 
-        private int Bathrooms ;
+        }
 
-        private int Capacity ;
 
-        private int Beds ;
-
-        private bool ForSmokers ;
-
-        private ViewType View ;
-
-        private List<IExtra> ListOfExtras ;
 
         public decimal CalculatePrice()
         {
