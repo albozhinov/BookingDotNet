@@ -8,6 +8,12 @@ namespace HotelManagement.Models
 {
     public class RegularRoom : IRegularRoom
     {
+        private int onFloor;
+        private int capacity;
+        private int beds;
+        private bool forSmokers;
+        private ViewType view;
+
         public int OnFloor => throw new NotImplementedException();
 
         public int Capacity => throw new NotImplementedException();

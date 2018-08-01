@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HotelManagement.Models
 {
-    class Villa : IVilla
+    class Villa : AccomodationProperty, IVilla
     {
         private int numberOfFloors;
         private int bedrooms;
