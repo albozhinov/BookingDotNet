@@ -25,6 +25,7 @@ namespace HotelManagement.Models
 
         }
 
+        // Properties
         public bool FullyQuipped => throw new NotImplementedException();
 
         public int Bedrooms => throw new NotImplementedException();

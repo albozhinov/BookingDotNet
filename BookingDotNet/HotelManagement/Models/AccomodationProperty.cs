@@ -91,7 +91,7 @@ namespace HotelManagement.Models
 
         public virtual decimal CalculatePrice()
         {
-            throw new NotImplementedException();
+            return this.BasePrice;
         }
     }
 }
