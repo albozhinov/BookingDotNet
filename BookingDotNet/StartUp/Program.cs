@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagement.Contracts;
+using HotelManagement.Models;
+using System;
 using Utility;
 
 namespace StartUp
@@ -7,7 +9,7 @@ namespace StartUp
     {
         static void Main(string[] args)
         {
-            Validation.CantBeZero(-5, "ERROR");
+            var room = new RegularRoom(3, 3, true, "Sea", 55, 2);
         }
     }
 }
