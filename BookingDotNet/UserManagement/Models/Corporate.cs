@@ -22,9 +22,20 @@ namespace UserManagement.Models
             this.NumberOfVisits = numberOfVisits;
             this.TelephoneNumber = telephoneNumber;
             this.Email = email;
-         }
+        }
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            set
+            {
+                Validation.StringLengthCheck(3, 20, value, "");
+                this.name = value;
+            }
+        }
         public int NumberOfEmployees { get; set; }
         public DateTime RegisteredOn { get; set; }
         public int NumberOfVisits { get; set; }

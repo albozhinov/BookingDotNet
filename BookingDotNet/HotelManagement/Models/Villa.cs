@@ -36,10 +36,5 @@ namespace HotelManagement.Models
         public int Bedrooms {get;set;}
         public int Bathrooms { get; set; }
 
-
-        public decimal CalculatePrice()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
