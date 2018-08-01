@@ -6,7 +6,10 @@ namespace HotelManagement.Common
 {
     public interface IExtra
     {
-        public int Tier;
+        int Tier { get; }
 
+        AvailableExtras Name { get; }
+
+        decimal Price { get; }
     }
 }
