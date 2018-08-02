@@ -6,5 +6,8 @@ namespace Hotel.Core.Contracts
 {
     interface IWriter
     {
+        void Write(string message);
+
+        void WriteLine(string message);
     }
 }

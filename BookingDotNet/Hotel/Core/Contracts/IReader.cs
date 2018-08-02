@@ -6,5 +6,6 @@ namespace Hotel.Core.Contracts
 {
     interface IReader
     {
+        string ReadLine();
     }
 }
