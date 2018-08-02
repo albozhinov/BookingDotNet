@@ -26,19 +26,23 @@ namespace HotelManagement.Models
 
         public List<IAccomodationProperty> Rooms { get => new List<IAccomodationProperty>(this.rooms); }
 
-        //This method have to be totally written!!!
+        //This method have to be totally rewritten!!!
 
         public bool checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = new List<AvailableExtras>();
             var extrasString = extras.Split(" ");
-            foreach(var extra in extrasString)
+            foreach (var extra in extrasString)
             {
                 Enum.TryParse(extra, out AvailableExtras result);
                 extrasList.Add(result);
             }
 
-            
+
+
+            var rooms = this.Rooms.Where(x => !!extrasList.Except(x.ListOfExtras.Select(e => e.Name).ToList()).Any()).ToList();
+
+
             return true;
         }
     }
