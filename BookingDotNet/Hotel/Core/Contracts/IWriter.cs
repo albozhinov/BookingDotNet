@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hotel.Core.Contracts
 {
-    interface IWriter
+   public interface IWriter
     {
         void Write(string message);
 

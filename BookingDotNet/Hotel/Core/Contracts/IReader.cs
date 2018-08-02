@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hotel.Core.Contracts
 {
-    interface IReader
+    public interface IReader
     {
         string ReadLine();
     }
