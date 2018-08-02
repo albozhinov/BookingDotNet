@@ -7,13 +7,13 @@ using Utility;
 
 namespace HotelManagement.Models
 {
-    class Villa : AccomodationProperty, IVilla
+    public class Villa : AccomodationProperty, IVilla
     {
         private int numberOfFloors;
         private int bedrooms;
         private int bathrooms;
 
-        public Villa(int numberOfFloors, int bedrooms, int bathrooms, List<IExtra> listOfExtras, int capacity, int beds, bool forSmokers,
+        public Villa(int numberOfFloors, int bedrooms, int bathrooms, int capacity, int beds, bool forSmokers,
             string view, decimal basePrice) : base(capacity, beds, forSmokers, view, basePrice)
         {
             this.NumberOfFloors = numberOfFloors;

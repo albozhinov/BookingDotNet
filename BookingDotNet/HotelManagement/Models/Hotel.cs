@@ -7,13 +7,13 @@ using Utility;
 
 namespace HotelManagement.Models
 {
-    public class Hotel : IHotel
+    public class HotelProperty : IHotel
     {
         private string name;
         private int floors;
         private readonly List<IAccomodationProperty> rooms;
 
-        public Hotel(string name, int floors)
+        public HotelProperty(string name, int floors)
         {
             this.Name = name;
             this.Floors = floors;

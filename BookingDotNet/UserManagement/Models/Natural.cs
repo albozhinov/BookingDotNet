@@ -19,14 +19,14 @@ namespace UserManagement.Models
 
         // Constructor
         public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                        int numberOfVisits, string telephoneNimber, string email)
+                        int numberOfVisits, string telephoneNumber, string email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.DateOfBirth = dateOfBirth;
             this.RegisteredOn = registeredOn;
             this.NumberOfVisits = numberOfVisits;
-            this.TelephoneNumber = telephoneNimber;
+            this.TelephoneNumber = telephoneNumber;
             this.Email = email;
         }
 
