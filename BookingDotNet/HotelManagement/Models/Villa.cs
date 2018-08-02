@@ -7,7 +7,7 @@ using Utility;
 
 namespace HotelManagement.Models
 {
-    class Villa : AccomodationProperty, IVilla
+    public class Villa : AccomodationProperty, IVilla
     {
         private int numberOfFloors;
         private int bedrooms;

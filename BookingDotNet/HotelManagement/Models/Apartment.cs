@@ -8,7 +8,7 @@ using Utility;
 
 namespace HotelManagement.Models
 {
-    class Apartment : AccomodationProperty, IApartment
+    public class Apartment : AccomodationProperty, IApartment
     {
         private bool fullyQuipped;
         private int bedrooms;

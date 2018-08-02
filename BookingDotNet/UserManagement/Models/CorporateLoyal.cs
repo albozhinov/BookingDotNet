@@ -6,7 +6,7 @@ using Utility;
 
 namespace UserManagement.Models
 {
-    class CorporateLoyal: Corporate, ICorporateClient
+    public class CorporateLoyal: Corporate, ICorporateClient
     {
         decimal discount;
 

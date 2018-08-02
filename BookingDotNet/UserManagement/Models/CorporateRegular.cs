@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UserManagement.Models
 {
-    class CorporateRegular : Corporate
+    public class CorporateRegular : Corporate
     {
         public CorporateRegular(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
              string telephoneNumber, string email)

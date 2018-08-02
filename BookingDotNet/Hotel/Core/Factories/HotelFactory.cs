@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using HotelManagement.Contracts;
 using HotelManagement.Models;
-
+using UserManagement.Models;
+using UserManagement.Contracts;
 
 namespace Hotel.Core.Factories
 {
@@ -27,7 +28,7 @@ namespace Hotel.Core.Factories
 
         public IHotel CreateHotel(string name, int floors)
         {
-            return new Hotel(name, floors);
+            return new HotelProperty(name, floors);
         }
 
         //Create Rooms
@@ -51,33 +52,33 @@ namespace Hotel.Core.Factories
         public IVilla CreateVilla(int numberOfFloors, int bedrooms, int bathrooms, int capacity, int beds, bool forSmokers,
             string view, decimal basePrice)
         {
-            return new Apartment(numberOfFloors, bedrooms, bathrooms, capacity, beds, forSmokers, view, basePrice);
+            return new Villa(numberOfFloors, bedrooms, bathrooms, capacity, beds, forSmokers, view, basePrice);
         }
 
         //Create Clients
 
-        public INatural CreateNaturalRegular(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
+        public INaturalClient CreateNaturalRegular(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
                         int numberOfVisits, string telephoneNumber, string email)
         {
             return new NaturalRegular(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email);
         }
 
-        public INatural CreateNaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
+        public INaturalClient CreateNaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
                             int numberOfVisits, string telephoneNumber, string email, decimal discount)
         {
             return new NaturalLoyal(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email, discount);
         }
 
-        public ICorporate CreateCorporateRegular(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
+        public ICorporateClient CreateCorporateRegular(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
              string telephoneNumber, string email)
         {
             return new CorporateRegular(name, numberOfEmployees, registeredOn, numberOfVisits, telephoneNumber, email);
         }
 
-        public ICorporate CreateCorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
+        public ICorporateClient CreateCorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
              string telephoneNumber, string email)
         {
-            return new CorporateRegular(discount, name, numberOfEmployees, registeredOn, numberOfVisits, telephoneNumber, email);
+            return new CorporateLoyal(discount, name, numberOfEmployees, registeredOn, numberOfVisits, telephoneNumber, email);
         }
     }
 }
