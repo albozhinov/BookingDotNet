@@ -3,7 +3,7 @@ using Hotel.Core.Contracts;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
 
 namespace Hotel.Commands.Creating
 {
@@ -33,10 +33,8 @@ namespace Hotel.Commands.Creating
             {
                 firstName = parameters[0];
                 lastName = parameters[1];
-                // Alex will implement a method for the date parsing.
-
-                //dateOfBirth = parameters[2];
-                //registeredOn = parameters[3];
+                dateOfBirth = DateTime.ParseExact(parameters[2], "d.M.yyyy", CultureInfo.InvariantCulture);
+                registeredOn = DateTime.Now;
                 numberOfVisits = int.Parse(parameters[4]);
                 telephoneNumber = parameters[5];
                 email = parameters[6];

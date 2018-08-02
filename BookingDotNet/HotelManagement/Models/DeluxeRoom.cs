@@ -11,7 +11,8 @@ namespace HotelManagement.Models
     {
         private int onFloor;
 
-        public DeluxeRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor) : base(capacity, beds, forSmokers, view, basePrice)
+        public DeluxeRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor) 
+            : base(capacity, beds, forSmokers, view, basePrice)
         {
             this.OnFloor = onFloor;
         }

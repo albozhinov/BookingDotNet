@@ -81,7 +81,7 @@ namespace UserManagement.Models
             }
             set
             {
-                Validation.StringLengthCheck(8, 20, value, Constants.email);
+                Validation.StringLengthCheck(8, 30, value, Constants.email);
                 this.email = value;
             }
         }

@@ -28,6 +28,6 @@
         public const string apartmentBedrooms = "The apartment cannot have less than 2 or more than 3 bedrooms.";
         public const string apartmentBathrooms = "The apartment cannot have less than 1 or more than 3 bathrooms.";
         public const string apartmentFloor = "The apartment floor cannot be negative.";
-
+        public const string clientAge = "The age of client cannot be less than 18 and more than 100.";
     }
 }

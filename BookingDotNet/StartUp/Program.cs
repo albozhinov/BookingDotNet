@@ -27,6 +27,14 @@ namespace StartUp
             Console.WriteLine(hotel.checkAvailability(4, "BigTV Dishwasher", DateTime.Now));
             Console.WriteLine(hotel.checkAvailability(2, "BigTV Dishwasher Garden", DateTime.Now));
             Console.WriteLine(hotel.checkAvailability(2, "MiniBar", DateTime.Now));
+
+            var dateOfBirth = DateTime.ParseExact("7.8.1982", "d.M.yyyy", CultureInfo.InvariantCulture);
+            var registeredOn = DateTime.Now;
+            var yearsOld = Math.Floor((DateTime.Now - dateOfBirth).TotalDays / 365);
+
+            Console.WriteLine(dateOfBirth.ToString("dd.MM.yyyy"));
+            Console.WriteLine(registeredOn.ToString("dd.MM.yyyy"));
+            Console.WriteLine(yearsOld);
         }
     }
 }

@@ -56,6 +56,8 @@ namespace UserManagement.Models
             get => this.dateOfBirth;
             set
             {
+                var yearsOld = Math.Floor((DateTime.Now - value).TotalDays / 365);
+                Validation.NumberBorderCheck(18d, 100d, yearsOld, Constants.clientAge);
                 this.dateOfBirth = value;
             }
         }        
@@ -64,7 +66,7 @@ namespace UserManagement.Models
         {
             get => this.registeredOn;
             set
-            {
+            {                
                 this.registeredOn = value;
             }
         }
@@ -94,7 +96,7 @@ namespace UserManagement.Models
             get => this.email;
             set
             {
-                Validation.StringLengthCheck(8, 20, value, Constants.email);
+                Validation.StringLengthCheck(8, 30, value, Constants.email);
                 this.email = value;
             }
         }
