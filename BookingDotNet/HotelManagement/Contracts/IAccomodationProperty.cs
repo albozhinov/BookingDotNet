@@ -1,4 +1,5 @@
 ﻿using HotelManagement.Common;
+using System;
 using System.Collections.Generic;
 
 namespace HotelManagement.Contracts
@@ -10,6 +11,7 @@ namespace HotelManagement.Contracts
         decimal BasePrice { get; }
         bool ForSmokers { get; }
         ViewType View { get; }
+        List<DateTime> NotAvailable { get; }
         List<IExtra> ListOfExtras { get; }
         decimal CalculatePrice();
         void AddExtra(IExtra extra);

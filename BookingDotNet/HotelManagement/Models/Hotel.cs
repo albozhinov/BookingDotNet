@@ -28,32 +28,23 @@ namespace HotelManagement.Models
 
         //This method have to be totally rewritten!!!
 
+        
+
         public string checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
-            var extrasList = new List<AvailableExtras>();
-            
-            var extrasString = extras.Split(' ');
-            foreach (var extra in extrasString)
+            var extrasList = extras.Split(' ').ToList();
+            var roomsAvailable = new List<IAccomodationProperty>();
+            foreach (var room in this.Rooms)
             {
-                var success = Enum.TryParse(extra, out AvailableExtras result);
-                if (success)
-                { 
-                extrasList.Add(result);
-                }
-                else
+                var roomExtras = room.ListOfExtras.Select(x => x.Name.ToString()).ToList();
+
+                if (extrasList.All(i => roomExtras.Contains(i)))
                 {
-                    Console.WriteLine($"Unable to parse {extra}");
+                    roomsAvailable.Add(room);
                 }
             }
-
-
-
-            //var roomsc = this.Rooms.Where(x => extrasList.Except(x.ListOfExtras.Select(e => e.Name).ToList()).Any()).ToList();
-            var rooms2 = this.Rooms.Where(x => extrasList.All(i => x.ListOfExtras.Select(e => e.Name).Contains(i))).FirstOrDefault();
-            //var rooms3 = this.Rooms.Where(x => x.ListOfExtras.Select(p=>p.Name).Any(w => extrasList.Contains(w)));
-
-            
-            if(rooms2 == null)
+            roomsAvailable = roomsAvailable.Where(x => (x.Capacity >= numberOfPeople && ! (x.NotAvailable.Contains(date)))).ToList();
+            if (roomsAvailable.Count == 0)
             {
                 return "Nothing found";
             }
@@ -61,6 +52,13 @@ namespace HotelManagement.Models
             {
                 return "Found a room";
             }
+        }
+
+
+        public void addRoom(IAccomodationProperty room)
+        {
+            Validation.CheckIfObjectIsNull(room, "Invalid room");
+            this.rooms.Add(room);
         }
     }
 }

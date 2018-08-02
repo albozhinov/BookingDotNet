@@ -14,6 +14,7 @@ namespace HotelManagement.Models
         private readonly bool forSmokers;
         private readonly ViewType view;
         private readonly List<IExtra> listOfExtras;
+        private readonly List<DateTime> notAvailable;
         private decimal basePrice;
 
         public AccomodationProperty(int capacity, int beds, bool forSmokers, string view, decimal basePrice)
@@ -25,6 +26,7 @@ namespace HotelManagement.Models
             this.view = result;
             this.BasePrice = basePrice;
             this.listOfExtras = new List<IExtra>();
+            this.notAvailable = new List<DateTime>();
         }
 
         public virtual int Capacity
@@ -81,6 +83,14 @@ namespace HotelManagement.Models
             {
                 Validation.NumberBorderCheck(50, 400, value, Constants.commonBasePrice);
                 this.basePrice = value;
+            }
+        }
+
+        public List<DateTime> NotAvailable
+        {
+            get
+            {
+                return new List<DateTime>(this.notAvailable);
             }
         }
 
