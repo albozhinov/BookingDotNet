@@ -34,7 +34,7 @@ namespace HotelManagement.Models
         {
             var extrasList = extras.Split(' ').ToList();
             var roomsAvailable = new List<IAccomodationProperty>();
-            foreach (var room in this.Rooms)
+            foreach (var room in this.rooms)
             {
                 var roomExtras = room.ListOfExtras.Select(x => x.Name.ToString()).ToList();
 
