@@ -13,8 +13,9 @@ namespace HotelManagement.Models
         private int bedrooms;
         private int bathrooms;
 
-        public Villa(int numberOfFloors, int bedrooms, int bathrooms, int capacity, int beds, bool forSmokers,
-            string view, decimal basePrice) : base(capacity, beds, forSmokers, view, basePrice)
+        public Villa(int numberOfFloors, int bedrooms, int bathrooms, int capacity,
+            int beds, bool forSmokers, string view, decimal basePrice) 
+            : base(capacity, beds, forSmokers, view, basePrice)
         {
             this.NumberOfFloors = numberOfFloors;
             this.Bedrooms = bedrooms;
@@ -33,6 +34,7 @@ namespace HotelManagement.Models
                 this.numberOfFloors = value;
             }
         }
+
         public int Bedrooms
         {
             get
@@ -45,6 +47,7 @@ namespace HotelManagement.Models
                 this.bedrooms = value;
             }
         }
+
         public int Bathrooms
         {
             get

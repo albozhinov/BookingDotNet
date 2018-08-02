@@ -7,7 +7,8 @@ namespace HotelManagement.Models
     public class RegularRoom : AccomodationProperty, IRegularRoom
     {
         private int onFloor;
-        public RegularRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor) : base(capacity, beds, forSmokers, view, basePrice)
+        public RegularRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor) 
+            : base(capacity, beds, forSmokers, view, basePrice)
         {
             this.OnFloor = onFloor;
         }
@@ -25,8 +26,25 @@ namespace HotelManagement.Models
             }
         }
 
-        public override int Capacity { get => base.Capacity; set { Validation.NumberBorderCheck(1, 2, value, Constants.regularRoomCapacity); base.Capacity = value; } }
-        public override int Beds { get => base.Beds; set { Validation.NumberBorderCheck(1, 2, value, Constants.regularRoomBeds); base.Beds = value; } }
+        public override int Capacity
+        {
+            get => base.Capacity;
+            set
+            {
+                Validation.NumberBorderCheck(1, 2, value, Constants.regularRoomCapacity);
+                base.Capacity = value;
+            }
+        }
+
+        public override int Beds
+        {
+            get => base.Beds;
+            set
+            {
+                Validation.NumberBorderCheck(1, 2, value, Constants.regularRoomBeds);
+                base.Beds = value;
+            }
+        }
 
         public override void AddExtra(IExtra extra)
         {

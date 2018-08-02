@@ -19,7 +19,7 @@ namespace UserManagement.Models
 
         // Constructor
         public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                        int numberOfVisits, string telephoneNumber, string email)
+                       int numberOfVisits, string telephoneNumber, string email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;

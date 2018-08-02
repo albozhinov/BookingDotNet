@@ -20,16 +20,32 @@ namespace HotelManagement.Models
             this.rooms = new List<IAccomodationProperty>();
         }
 
-        public string Name { get => this.name; set { Validation.StringLengthCheck(2, 15, value, Constants.hotelName); this.name = value; } }
+        public string Name
+        {
+            get => this.name;
+            set
+            {
+                Validation.StringLengthCheck(2, 15, value, Constants.hotelName);
+                this.name = value;
+            }
+        }
 
-        public int Floors { get => this.floors; set { Validation.NumberBorderCheck(1, 15, value, Constants.numberOfFloors); this.floors = value; } }
+        public int Floors
+        {
+            get => this.floors;
+            set
+            {
+                Validation.NumberBorderCheck(1, 15, value, Constants.numberOfFloors);
+                this.floors = value;
+            }
+        }
 
-        public List<IAccomodationProperty> Rooms { get => new List<IAccomodationProperty>(this.rooms); }
+        public List<IAccomodationProperty> Rooms
+        {
+            get => new List<IAccomodationProperty>(this.rooms);
+        }
 
         //This method have to be totally rewritten!!!
-
-        
-
         public string checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = extras.Split(' ').ToList();
@@ -53,7 +69,6 @@ namespace HotelManagement.Models
                 return "Found a room";
             }
         }
-
 
         public void addRoom(IAccomodationProperty room)
         {

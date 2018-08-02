@@ -1,33 +1,35 @@
-﻿using Hotel.Commands.Contracts;
+﻿using System;
+using System.Collections.Generic;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
 using Hotel.Core.Factories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Hotel.Commands.Listing
 {
     class ListRoomsInHotel : ICommand
     {
-        private readonly IHotelFactory factory;
+        // Fields
+        private readonly IHotelFactory facotry;
         private readonly IEngine engine;
 
+        // Constructor
         public ListRoomsInHotel(IHotelFactory factory, IEngine engine)
         {
-            this.factory = factory;
+            this.facotry = factory;
             this.engine = engine;
         }
 
+        // Method
         public string Execute(IList<string> parameters)
         {
-            var tickets = this.engine.Rooms;
+            var rooms = this.engine.Rooms;
 
-            if (tickets.Count == 0)
+            if (rooms.Count == 0)
             {
-                return "There are no registered rooms.";
+                return "There are no registered room.";
             }
 
-            return string.Join(Environment.NewLine + "####################" + Environment.NewLine, tickets);
+            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, rooms);
         }
     }
 }

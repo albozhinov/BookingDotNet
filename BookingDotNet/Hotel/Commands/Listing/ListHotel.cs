@@ -1,11 +1,35 @@
-﻿using Hotel.Commands.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Hotel.Commands.Contracts;
+using Hotel.Core.Contracts;
+using Hotel.Core.Factories;
 
 namespace Hotel.Commands.Listing
 {
     class ListHotel : ICommand
     {
+        // Fields
+        private readonly IHotelFactory facotry;
+        private readonly IEngine engine;
+
+        // Constructor
+        public ListHotel(IHotelFactory factory, IEngine engine)
+        {
+            this.facotry = factory;
+            this.engine = engine;
+        }
+
+        // Method
+        public string Execute(IList<string> parameters)
+        {
+            var hotels = this.engine.Hotels;
+
+            if (hotels.Count == 0)
+            {
+                return "There are no registered hotel.";
+            }
+
+            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, hotels);
+        }
     }
 }

@@ -13,8 +13,8 @@ namespace UserManagement.Models
         private string telephoneNumber;
         private string email;
 
-        public Corporate(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
-             string telephoneNumber, string email)
+        public Corporate(string name, int numberOfEmployees, DateTime registeredOn,
+                         int numberOfVisits, string telephoneNumber, string email)
         {
             this.Name = name;
             this.NumberOfEmployees = numberOfEmployees;

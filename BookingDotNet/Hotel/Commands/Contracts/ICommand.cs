@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Hotel.Commands.Contracts
 {
     public interface ICommand
     {
-
+        string Execute(IList<string> parameters);
     }
 }

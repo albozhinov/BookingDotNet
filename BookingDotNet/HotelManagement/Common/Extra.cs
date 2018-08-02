@@ -43,6 +43,5 @@ namespace HotelManagement.Common
                 this.price = value;
             }
         }
-
     }
 }
