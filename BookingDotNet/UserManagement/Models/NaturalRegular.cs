@@ -8,8 +8,8 @@ namespace UserManagement.Models
     public class NaturalRegular : Natural, INaturalClient
     {
         public NaturalRegular(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                        int numberOfVisits, string telephoneNimber, string email)
-            : base(firstName , lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNimber, email)
+                        int numberOfVisits, string telephoneNumber, string email)
+            : base(firstName , lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email)
         {
 
         }
