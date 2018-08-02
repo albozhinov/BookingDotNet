@@ -5,7 +5,11 @@ using System.Text;
 
 namespace Hotel.Core.Providers
 {
-    class ConsoleReader : IReader
+    public class ConsoleReader : IReader
     {
+        public string ReadLine()
+        {
+            return Console.ReadLine();
+        }
     }
 }
