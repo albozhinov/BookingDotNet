@@ -6,7 +6,7 @@ using UserManagement.Contracts;
 
 namespace Hotel.Core.Contracts
 {
-    interface IEngine
+    public interface IEngine
     {
         void Start();
 
@@ -17,7 +17,9 @@ namespace Hotel.Core.Contracts
         IParser Parser { get; set; }
 
         IList<IClient> Clients { get; }
+
         IList<IHotel> Hotels { get; }
+
         IList<IAccomodationProperty> Rooms { get; }
     }
 }

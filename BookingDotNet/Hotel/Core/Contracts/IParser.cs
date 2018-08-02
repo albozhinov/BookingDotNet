@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hotel.Core.Contracts
 {
-    interface IParser
+    public interface IParser
     {
         ICommand ParseCommand(string fullCommand);
 

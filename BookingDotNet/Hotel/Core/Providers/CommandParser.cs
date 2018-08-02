@@ -1,4 +1,5 @@
-﻿using Hotel.Core.Contracts;
+﻿using Hotel.Commands.Contracts;
+using Hotel.Core.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,6 +7,6 @@ using System.Text;
 namespace Hotel.Core.Providers
 {
     class CommandParser : IParser
-    {
+    {        
     }
 }
