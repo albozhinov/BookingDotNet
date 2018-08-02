@@ -28,22 +28,39 @@ namespace HotelManagement.Models
 
         //This method have to be totally rewritten!!!
 
-        public bool checkAvailability(int numberOfPeople, string extras, DateTime date)
+        public string checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = new List<AvailableExtras>();
-            var extrasString = extras.Split(" ");
+            
+            var extrasString = extras.Split(' ');
             foreach (var extra in extrasString)
             {
-                Enum.TryParse(extra, out AvailableExtras result);
+                var success = Enum.TryParse(extra, out AvailableExtras result);
+                if (success)
+                { 
                 extrasList.Add(result);
+                }
+                else
+                {
+                    Console.WriteLine($"Unable to parse {extra}");
+                }
             }
 
 
 
-            var rooms = this.Rooms.Where(x => !!extrasList.Except(x.ListOfExtras.Select(e => e.Name).ToList()).Any()).ToList();
+            //var roomsc = this.Rooms.Where(x => extrasList.Except(x.ListOfExtras.Select(e => e.Name).ToList()).Any()).ToList();
+            var rooms2 = this.Rooms.Where(x => extrasList.All(i => x.ListOfExtras.Select(e => e.Name).Contains(i))).FirstOrDefault();
+            //var rooms3 = this.Rooms.Where(x => x.ListOfExtras.Select(p=>p.Name).Any(w => extrasList.Contains(w)));
 
-
-            return true;
+            
+            if(rooms2 == null)
+            {
+                return "Nothing found";
+            }
+            else
+            {
+                return "Found a room";
+            }
         }
     }
 }

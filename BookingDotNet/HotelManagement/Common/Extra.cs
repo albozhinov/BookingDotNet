@@ -12,7 +12,7 @@ namespace HotelManagement.Common
         public Extra(int tier, AvailableExtras name, decimal price) : this()
         {
             this.Tier = tier;
-            this.Name = name;
+            this.name = name;
             this.Price = price;
         }
 
@@ -29,7 +29,7 @@ namespace HotelManagement.Common
             }
         }
 
-        public AvailableExtras Name { get; }
+        public AvailableExtras Name { get => this.name; }
 
         public decimal Price
         {
