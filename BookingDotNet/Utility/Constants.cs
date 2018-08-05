@@ -29,5 +29,9 @@
         public const string apartmentBathrooms = "The apartment cannot have less than 1 or more than 3 bathrooms.";
         public const string apartmentFloor = "The apartment floor cannot be negative.";
         public const string clientAge = "The age of client cannot be less than 18 and more than 100.";
+        public const string invalidHotel = "Hotel is invalid";
+        public const string invalidUser = "User is invalid";
+        public const string invalidRoom = "Room is invalid";
+        public const string roomNotFound = "There are no rooms available in the hotel you selected with this parameters. Please try searching for less extras, or different dates";
     }
 }

@@ -20,16 +20,12 @@ namespace Hotel.Core.Factories
         IVilla CreateVilla(int numberOfFloors, int bedrooms, int bathrooms, int capacity, int beds, bool forSmokers,
                            string view, decimal basePrice);
 
-        INaturalClient CreateNaturalRegular(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                                            int numberOfVisits, string telephoneNumber, string email);
+        INaturalClient CreateNaturalRegular(int numberOfVisits, string telephoneNumber, string email, string firstName, string lastName, DateTime dateOfBirth);
 
-        INaturalClient CreateNaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                                          int numberOfVisits, string telephoneNumber, string email, decimal discount);
+        INaturalClient CreateNaturalLoyal(int numberOfVisits, string telephoneNumber, string email, string firstName, string lastName, DateTime dateOfBirth, decimal discount);
 
-        ICorporateClient CreateCorporateRegular(string name, int numberOfEmployees, DateTime registeredOn,
-                                                int numberOfVisits, string telephoneNumber, string email);
+        ICorporateClient CreateCorporateRegular(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees);
 
-        ICorporateClient CreateCorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn,
-                                              int numberOfVisits, string telephoneNumber, string email);
+        ICorporateClient CreateCorporateLoyal(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees, decimal discount);
     }
 }

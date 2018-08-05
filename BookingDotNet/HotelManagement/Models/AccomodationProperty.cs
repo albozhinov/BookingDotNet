@@ -103,5 +103,14 @@ namespace HotelManagement.Models
         {
             return this.BasePrice;
         }
+
+        public void SaveRoom(DateTime date)
+        {
+            if(date < DateTime.Now.Date)
+            {
+                throw new ArgumentException("You cannot save rooms for past dates");
+            }
+            this.notAvailable.Add(date.Date);
+        }
     }
 }

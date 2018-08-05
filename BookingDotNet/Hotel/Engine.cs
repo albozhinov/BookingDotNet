@@ -74,7 +74,7 @@ namespace Hotel
 
         private void ProcessCommand(string commandAsString)
         {
-            if (string.IsNullOrWhiteSpace(commandAsString)
+            if (string.IsNullOrWhiteSpace(commandAsString))
             {
                 throw new ArgumentNullException("Command cannot be null or empty.");
             }

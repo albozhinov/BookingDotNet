@@ -57,28 +57,28 @@ namespace Hotel.Core.Factories
 
         //Create Clients
 
-        public INaturalClient CreateNaturalRegular(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                        int numberOfVisits, string telephoneNumber, string email)
+        public INaturalClient CreateNaturalRegular(int numberOfVisits, string telephoneNumber, string email, string firstName, string lastName, DateTime dateOfBirth)
+                          
         {
-            return new NaturalRegular(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email);
+            return new NaturalRegular(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth);
         }
 
-        public INaturalClient CreateNaturalLoyal(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                            int numberOfVisits, string telephoneNumber, string email, decimal discount)
+        public INaturalClient CreateNaturalLoyal(int numberOfVisits, string telephoneNumber, string email, string firstName, string lastName, DateTime dateOfBirth, decimal discount)
+
         {
-            return new NaturalLoyal(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email, discount);
+            return new NaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
         }
 
-        public ICorporateClient CreateCorporateRegular(string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
-             string telephoneNumber, string email)
+        public ICorporateClient CreateCorporateRegular(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees)
+              
         {
-            return new CorporateRegular(name, numberOfEmployees, registeredOn, numberOfVisits, telephoneNumber, email);
+            return new CorporateRegular(numberOfVisits, telephoneNumber, email, name, numberOfEmployees);
         }
 
-        public ICorporateClient CreateCorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
-             string telephoneNumber, string email)
+        public ICorporateClient CreateCorporateLoyal(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees, decimal discount)
+
         {
-            return new CorporateLoyal(discount, name, numberOfEmployees, registeredOn, numberOfVisits, telephoneNumber, email);
+            return new CorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
         }
     }
 }

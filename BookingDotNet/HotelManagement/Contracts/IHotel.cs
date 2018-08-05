@@ -8,7 +8,7 @@ namespace HotelManagement.Contracts
         string Name { get; }
         int Floors { get; }
         List<IAccomodationProperty> Rooms { get; }
-        string checkAvailability(int numberOfPeople, string extras, DateTime date);
-        void addRoom(IAccomodationProperty room);
+        IAccomodationProperty checkAvailability(int numberOfPeople, string extras, DateTime date);
+        void AddRoom(IAccomodationProperty room);
     }
 }

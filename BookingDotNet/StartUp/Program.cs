@@ -4,6 +4,7 @@ using HotelManagement.Models;
 using System;
 using System.Globalization;
 using System.Linq;
+using UserManagement.Models;
 using Utility;
 
 namespace StartUp
@@ -22,19 +23,25 @@ namespace StartUp
             room1.AddExtra(extra2);
             room1.AddExtra(extra3);
             room1.AddExtra(extra4);
-            hotel.addRoom(room1);
-            Console.WriteLine(hotel.checkAvailability(2, "", DateTime.Now));
-            Console.WriteLine(hotel.checkAvailability(4, "BigTV Dishwasher", DateTime.Now));
-            Console.WriteLine(hotel.checkAvailability(2, "BigTV Dishwasher Garden", DateTime.Now));
-            Console.WriteLine(hotel.checkAvailability(2, "MiniBar", DateTime.Now));
+            hotel.AddRoom(room1);
+            var user = new NaturalLoyal(3, "0887999019", "pichovete@abv.bg", "Teo", "Peev", DateTime.Now.AddYears(-24), 0.2M);
+            user.ReserveRoom(hotel, 2, "BigTV Dishwasher Garden", DateTime.Now.AddDays(5));
+            Console.WriteLine(user.ToString());
 
-            var dateOfBirth = DateTime.ParseExact("7.8.1982", "d.M.yyyy", CultureInfo.InvariantCulture);
-            var registeredOn = DateTime.Now;
-            var yearsOld = Math.Floor((DateTime.Now - dateOfBirth).TotalDays / 365);
+            //Console.WriteLine(hotel.checkAvailability(2, "", DateTime.Now));
+            //Console.WriteLine(hotel.checkAvailability(4, "BigTV Dishwasher", DateTime.Now));
+            //Console.WriteLine(hotel.checkAvailability(2, "BigTV Dishwasher Garden", DateTime.Now));
+            //Console.WriteLine(hotel.checkAvailability(2, "MiniBar", DateTime.Now));
 
-            Console.WriteLine(dateOfBirth.ToString("dd.MM.yyyy"));
-            Console.WriteLine(registeredOn.ToString("dd.MM.yyyy"));
-            Console.WriteLine(yearsOld);
+            //var dateOfBirth = DateTime.ParseExact("7.8.1982", "d.M.yyyy", CultureInfo.InvariantCulture);
+            //var registeredOn = DateTime.Now;
+            //var yearsOld = Math.Floor((DateTime.Now - dateOfBirth).TotalDays / 365);
+
+            //Console.WriteLine(dateOfBirth.ToString("dd.MM.yyyy"));
+            //Console.WriteLine(registeredOn.ToString("dd.MM.yyyy"));
+            //Console.WriteLine(yearsOld);
+
+
         }
     }
 }

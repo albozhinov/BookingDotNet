@@ -45,7 +45,7 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Natural Regular client command parameters.");
             }
 
-            var naturalReg = this.factory.CreateNaturalRegular(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits, telephoneNumber, email);
+            var naturalReg = this.factory.CreateNaturalRegular(numberOfVisits, telephoneNumber, email,  firstName, lastName, dateOfBirth);
             this.engine.Clients.Add(naturalReg);
 
             return $"Natural Regular client with ID {engine.Rooms.Count - 1} was created.";

@@ -45,8 +45,7 @@ namespace HotelManagement.Models
             get => new List<IAccomodationProperty>(this.rooms);
         }
 
-        //This method have to be totally rewritten!!!
-        public string checkAvailability(int numberOfPeople, string extras, DateTime date)
+        public IAccomodationProperty checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = extras.Split(' ').ToList();
             var roomsAvailable = new List<IAccomodationProperty>();
@@ -59,18 +58,16 @@ namespace HotelManagement.Models
                     roomsAvailable.Add(room);
                 }
             }
-            roomsAvailable = roomsAvailable.Where(x => (x.Capacity >= numberOfPeople && ! (x.NotAvailable.Contains(date)))).ToList();
-            if (roomsAvailable.Count == 0)
+            var roomSelected = roomsAvailable.Where(x => (x.Capacity >= numberOfPeople && ! (x.NotAvailable.Contains(date)))).FirstOrDefault();
+            if(roomSelected != null)
             {
-                return "Nothing found";
+                roomSelected.SaveRoom(date.Date);
             }
-            else
-            {
-                return "Found a room";
-            }
+            return roomSelected;
         }
 
-        public void addRoom(IAccomodationProperty room)
+
+        public void AddRoom(IAccomodationProperty room)
         {
             Validation.CheckIfObjectIsNull(room, "Invalid room");
             this.rooms.Add(room);

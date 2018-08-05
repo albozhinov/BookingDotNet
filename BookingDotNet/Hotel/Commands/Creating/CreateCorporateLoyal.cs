@@ -44,8 +44,7 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Corporate Loyal client command parameters.");
             }
 
-            var corpLoyal = this.factory.CreateCorporateLoyal(discount, name, numberOfEmployees, registeredOn,
-                numberOfVisits, telephoneNumber, email);
+            var corpLoyal = this.factory.CreateCorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
             this.engine.Clients.Add(corpLoyal);
 
             return $"Corporate Loyal client with ID {engine.Rooms.Count - 1} was created.";

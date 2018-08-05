@@ -15,6 +15,7 @@ namespace HotelManagement.Contracts
         List<IExtra> ListOfExtras { get; }
         decimal CalculatePrice();
         void AddExtra(IExtra extra);
+        void SaveRoom(DateTime date);
 
     }
 }

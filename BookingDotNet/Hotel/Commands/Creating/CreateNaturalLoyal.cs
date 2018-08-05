@@ -45,8 +45,7 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Natural Loyal client command parameters.");
             }
 
-            var naturalLoyal = this.factory.CreateNaturalLoyal(firstName, lastName, dateOfBirth, registeredOn, numberOfVisits,
-                telephoneNumber, email, discount);
+            var naturalLoyal = this.factory.CreateNaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
             this.engine.Clients.Add(naturalLoyal);
 
             return $"Natural Loyal client with ID {engine.Rooms.Count - 1} was created.";

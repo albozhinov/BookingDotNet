@@ -43,8 +43,7 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Corporate Regular client command parameters.");
             }
 
-            var corpReg = this.factory.CreateCorporateRegular(name, numberOfEmployees, registeredOn,
-                numberOfVisits, telephoneNumber, email);
+            var corpReg = this.factory.CreateCorporateRegular(numberOfVisits, telephoneNumber, email, name, numberOfEmployees);
             this.engine.Clients.Add(corpReg);
 
             return $"Corporate Regular client with ID {engine.Rooms.Count - 1} was created.";

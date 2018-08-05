@@ -10,9 +10,8 @@ namespace UserManagement.Models
     {
         decimal discount;
 
-        public CorporateLoyal(decimal discount, string name, int numberOfEmployees, DateTime registeredOn, int numberOfVisits,
-             string telephoneNumber, string email)
-            :base(name, numberOfEmployees, registeredOn, numberOfEmployees, telephoneNumber, email)
+        public CorporateLoyal(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees, decimal discount)
+            : base(numberOfEmployees, telephoneNumber, email, name, numberOfEmployees)
         {
             this.Discount = discount;
         }

@@ -6,28 +6,21 @@ using Utility;
 
 namespace UserManagement.Models
 {
-    public abstract class Natural : INaturalClient
+    public abstract class Natural : Client, INaturalClient
     {
         // Fields
         private string firstName;
         private string lastName;
         private DateTime dateOfBirth;
-        private DateTime registeredOn;
-        private int numberOfVisits;
-        private string telephoneNumber;
-        private string email;
+
 
         // Constructor
-        public Natural(string firstName, string lastName, DateTime dateOfBirth, DateTime registeredOn,
-                       int numberOfVisits, string telephoneNumber, string email)
+        public Natural(int numberOfVisit, string telephoneNumber, string email, string firstName, string lastName, DateTime dateOfBirth) : base(numberOfVisit,telephoneNumber,email)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.DateOfBirth = dateOfBirth;
-            this.RegisteredOn = registeredOn;
-            this.NumberOfVisits = numberOfVisits;
-            this.TelephoneNumber = telephoneNumber;
-            this.Email = email;
+
         }
 
         // Properties
@@ -62,43 +55,5 @@ namespace UserManagement.Models
             }
         }        
         
-        public DateTime RegisteredOn
-        {
-            get => this.registeredOn;
-            set
-            {                
-                this.registeredOn = value;
-            }
-        }
-
-        public int NumberOfVisits
-        {
-            get => this.numberOfVisits;
-            set
-            {
-                Validation.CantBeZero(value, Constants.numberOfVisits);
-                this.numberOfVisits = value;
-            }
-        }
-
-        public string TelephoneNumber
-        {
-            get => this.telephoneNumber;
-            set
-            {
-                Validation.StringLengthCheck(8, 12, value, Constants.telNo);
-                this.telephoneNumber = value;
-            }
-        }
-
-        public string Email
-        {
-            get => this.email;
-            set
-            {
-                Validation.StringLengthCheck(8, 30, value, Constants.email);
-                this.email = value;
-            }
-        }
     }
 }

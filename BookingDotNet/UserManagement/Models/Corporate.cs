@@ -4,24 +4,18 @@ using Utility;
 
 namespace UserManagement.Models
 {
-    public abstract class Corporate : ICorporateClient
+    public abstract class Corporate : Client, ICorporateClient
     {
         private string name;
         private int numberOfEmployees;
-        private DateTime registeredOn;
-        private int numberOfVisits;
-        private string telephoneNumber;
-        private string email;
 
-        public Corporate(string name, int numberOfEmployees, DateTime registeredOn,
-                         int numberOfVisits, string telephoneNumber, string email)
+
+        public Corporate(int numberOfVisits, string telephoneNumber, string email, string name, int numberOfEmployees) 
+            : base(numberOfEmployees,telephoneNumber,email)
+                         
         {
             this.Name = name;
             this.NumberOfEmployees = numberOfEmployees;
-            this.RegisteredOn = registeredOn;
-            this.NumberOfVisits = numberOfVisits;
-            this.TelephoneNumber = telephoneNumber;
-            this.Email = email;
         }
 
         public string Name
@@ -48,42 +42,6 @@ namespace UserManagement.Models
                 this.numberOfEmployees = value;
             }
         }
-        public DateTime RegisteredOn { get; set; }
-        public int NumberOfVisits
-        {
-            get
-            {
-                return this.numberOfVisits;
-            }
-            set
-            {
-                Validation.CantBeZero(value, Constants.numberOfVisits);
-                this.numberOfVisits = value;
-            }
-        }
-        public string TelephoneNumber
-        {
-            get
-            {
-                return this.telephoneNumber;
-            }
-            set
-            {
-                Validation.StringLengthCheck(8, 12, value, Constants.telNo);
-                this.telephoneNumber = value;
-            }
-        }
-        public string Email
-        {
-            get
-            {
-                return this.email;
-            }
-            set
-            {
-                Validation.StringLengthCheck(8, 30, value, Constants.email);
-                this.email = value;
-            }
-        }
+
     }
 }
