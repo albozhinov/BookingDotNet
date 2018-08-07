@@ -3,6 +3,7 @@ using HotelManagement.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Utility;
 
 namespace HotelManagement.Models
@@ -85,9 +86,13 @@ namespace HotelManagement.Models
             this.rooms.Add(room);
         }
 
-        //public override string ToString()
-        //{
-            
-        //}
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"=== Information for hotel: {this.Name}");
+            sb.AppendLine($"===== Stars: {this.Stars} *");
+            sb.AppendLine($"===== Number of floors: {this.Floors}");
+            return sb.ToString();
+        }
     }
 }
