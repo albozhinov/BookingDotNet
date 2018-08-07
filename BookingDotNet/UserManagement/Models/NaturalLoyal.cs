@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UserManagement.Contracts;
 using Utility;
 
@@ -25,6 +26,13 @@ namespace UserManagement.Models
                 Validation.NumberBorderCheck(0.05M, 0.2M, value, Constants.discount);
                 this.discount = value;
             }
+        }
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Discount: {this.Discount*100}%");
+            return sb.ToString();
         }
     }
 }

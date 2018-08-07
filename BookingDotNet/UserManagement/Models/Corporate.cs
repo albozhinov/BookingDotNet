@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using UserManagement.Contracts;
 using Utility;
 
@@ -41,6 +42,16 @@ namespace UserManagement.Models
                 Validation.CantBeZero(value, Constants.numberOfEmployees);
                 this.numberOfEmployees = value;
             }
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Specific information for user");
+            sb.AppendLine($"===== Company name: {this.NumberOfEmployees}");
+            sb.AppendLine($"===== Number of employees: {this.NumberOfEmployees}");
+            return sb.ToString();
         }
 
     }

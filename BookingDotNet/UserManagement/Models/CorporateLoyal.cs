@@ -28,5 +28,12 @@ namespace UserManagement.Models
                 this.discount = value;
             }
         }
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Discount: {this.Discount*100}%");
+            return sb.ToString();
+        }
     }
 }

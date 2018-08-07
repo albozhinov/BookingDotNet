@@ -2,6 +2,7 @@
 using HotelManagement.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Utility;
 
@@ -111,6 +112,22 @@ namespace HotelManagement.Models
                 throw new ArgumentException("You cannot save rooms for past dates");
             }
             this.notAvailable.Add(date.Date);
+            this.notAvailable.Sort();
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"=== Information for property of type: {this.GetType().Name}");
+            sb.AppendLine($"===== Capacity: {this.Capacity}");
+            sb.AppendLine($"===== Number of beds: {this.Beds}");
+            sb.AppendLine($"===== For Smokers: {((this.ForSmokers) ? "Yes":"No" )}");
+            sb.AppendLine($"===== View: {this.View.ToString()}");
+            sb.AppendLine($"===== Price: {this.BasePrice}");
+            sb.AppendLine($"===== Extras: {String.Join(',',this.ListOfExtras.Select(x=>x.Name.ToString()).ToList())}");
+            sb.AppendLine($"===== Not available for the following dates: {String.Join("| ", this.NotAvailable.Select(x => x.ToString("dd/MM/yyyy")))}");
+            return sb.ToString();
+
         }
     }
 }

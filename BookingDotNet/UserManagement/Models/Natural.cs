@@ -53,7 +53,17 @@ namespace UserManagement.Models
                 Validation.NumberBorderCheck(18d, 100d, yearsOld, Constants.clientAge);
                 this.dateOfBirth = value;
             }
-        }        
-        
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Specific information for user");
+            sb.AppendLine($"===== Name: {this.FirstName} {this.LastName}");
+            sb.AppendLine($"===== Date of birth: {this.dateOfBirth.ToString("dd/MM/yyyy")}");
+            return sb.ToString();
+        }
+
     }
 }
