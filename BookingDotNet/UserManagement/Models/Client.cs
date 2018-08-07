@@ -46,6 +46,7 @@ namespace UserManagement.Models
             set
             {
                 Validation.StringLengthCheck(8, 12, value, Constants.telNo);
+                Validation.isNumber(value, Constants.telNoNum);
                 this.telephoneNumber = value;
             }
         }

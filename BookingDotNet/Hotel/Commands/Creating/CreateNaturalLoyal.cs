@@ -48,7 +48,7 @@ namespace Hotel.Commands.Creating
             var naturalLoyal = this.factory.CreateNaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
             this.engine.Clients.Add(naturalLoyal);
 
-            return $"Natural Loyal client with ID {engine.Rooms.Count - 1} was created.";
+            return $"Natural Loyal client with ID {engine.Clients.Count - 1} was created.";
         }
     }
 }

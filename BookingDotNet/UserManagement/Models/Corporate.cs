@@ -48,7 +48,7 @@ namespace UserManagement.Models
         {
             var sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendLine($"===== Specific information for user");
+            //sb.AppendLine($"===== Specific information for user");
             sb.AppendLine($"===== Company name: {this.Name}");
             sb.AppendLine($"===== Number of employees: {this.NumberOfEmployees}");
             return sb.ToString();

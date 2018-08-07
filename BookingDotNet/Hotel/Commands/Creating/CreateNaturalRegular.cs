@@ -47,7 +47,7 @@ namespace Hotel.Commands.Creating
             var naturalReg = this.factory.CreateNaturalRegular(numberOfVisits, telephoneNumber, email,  firstName, lastName, dateOfBirth);
             this.engine.Clients.Add(naturalReg);
 
-            return $"Natural Regular client with ID {engine.Rooms.Count - 1} was created.";
+            return $"Natural Regular client with ID {engine.Clients.Count - 1} was created.";
         }
     }
 }

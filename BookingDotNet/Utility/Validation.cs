@@ -38,6 +38,12 @@ namespace Utility
                 throw new ArgumentNullException(errMessage);
             }
         }
-
+        public static void isNumber (string givenNum, string errMessage)
+        {
+            if (!long.TryParse(givenNum,out long result))
+            {
+                throw new ArgumentException(errMessage);
+            }
+        }
     }
 }

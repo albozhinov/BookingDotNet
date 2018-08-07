@@ -7,11 +7,14 @@ namespace HotelManagement.Models
     public class RegularRoom : AccomodationProperty, IRegularRoom
     {
         private int onFloor;
+
         public RegularRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor) 
             : base(capacity, beds, forSmokers, view, basePrice)
         {
             this.OnFloor = onFloor;
+           this.Capacity = capacity;
         }
+
 
         public int OnFloor
         {

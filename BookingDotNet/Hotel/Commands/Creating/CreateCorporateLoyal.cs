@@ -46,7 +46,7 @@ namespace Hotel.Commands.Creating
             var corpLoyal = this.factory.CreateCorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
             this.engine.Clients.Add(corpLoyal);
 
-            return $"Corporate Loyal client with ID {engine.Rooms.Count - 1} was created.";
+            return $"Corporate Loyal client with ID {engine.Clients.Count - 1} was created.";
 
         }
     }

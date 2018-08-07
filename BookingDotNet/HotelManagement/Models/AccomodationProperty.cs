@@ -13,7 +13,7 @@ namespace HotelManagement.Models
         private int capacity;
         private int beds;
         private readonly bool forSmokers;
-        private readonly ViewType view;
+        //private readonly ViewType view;
         private readonly List<IExtra> listOfExtras;
         private readonly List<DateTime> notAvailable;
         private decimal basePrice;
@@ -23,8 +23,25 @@ namespace HotelManagement.Models
             this.Capacity = capacity;
             this.Beds = beds;
             this.forSmokers = forSmokers;
-            Enum.TryParse(view, out ViewType result);
-            this.view = result;
+            view = view.First().ToString().ToUpper() + view.Substring(1);
+            //Investigate why this option does not work
+
+            //if (Enum.TryParse(view, out ViewType result))
+            //{
+            //    this.view = result;
+            //}
+            //else
+            //{
+            //    throw new ArgumentException("View not valid.");
+            //}
+            try
+            {
+                this.View = Enum.Parse<ViewType>(view, true);
+            }
+            catch (ArgumentException)
+            {
+                throw new ArgumentException("View not valid.");
+            }
             this.BasePrice = basePrice;
             this.listOfExtras = new List<IExtra>();
             this.notAvailable = new List<DateTime>();
@@ -54,7 +71,6 @@ namespace HotelManagement.Models
                 this.beds = value;
             }
         }
-
 
         public bool ForSmokers
         {

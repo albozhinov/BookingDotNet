@@ -22,6 +22,19 @@ namespace HotelManagement.Models
             this.Bathrooms = bathrooms;
         }
 
+        public override int Capacity
+        {
+            get
+            {
+                return base.Capacity;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 8, value, Constants.villaCapacity);
+                base.Capacity = value;
+            }
+        }
+
         public int NumberOfFloors
         {
             get

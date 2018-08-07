@@ -8,7 +8,7 @@ namespace Hotel.Core.Factories
 {
     interface IHotelFactory
     {
-        IHotel CreateHotel(string name, int floors);
+        IHotel CreateHotel(string name, int floors, int stars);
 
         IRegularRoom CreateRegularRoom(int capacity, int beds, bool forSmokers, string view, decimal basePrice, int onFloor);
 

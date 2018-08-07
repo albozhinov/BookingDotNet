@@ -23,18 +23,20 @@ namespace Hotel.Commands.Creating
         {
             string name;
             int floors;
+            int stars;
 
             try
             {
                 name = parameters[0];
                 floors = int.Parse(parameters[1]);
+                stars = int.Parse(parameters[2]);
             }
             catch
             {
                 throw new ArgumentException("Failed to parse CreateHotel command parameters.");
             }
 
-            var hotel = this.factory.CreateHotel(name, floors);
+            var hotel = this.factory.CreateHotel(name, floors,stars);
             this.engine.Hotels.Add(hotel);
 
             return $"Hotel with ID {engine.Rooms.Count - 1} was created.";

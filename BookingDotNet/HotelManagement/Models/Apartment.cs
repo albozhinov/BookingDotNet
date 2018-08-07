@@ -27,6 +27,19 @@ namespace HotelManagement.Models
         }
 
         // Properties
+        public override int Capacity
+        {
+            get
+            {
+                return base.Capacity;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 6, value, Constants.apartmentCapacity);
+                base.Capacity = value;
+            }
+        }
+
         public bool FullyQuipped
         {
             get => this.fullyQuipped;

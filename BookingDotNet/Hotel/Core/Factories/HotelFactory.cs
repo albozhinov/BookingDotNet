@@ -26,9 +26,9 @@ namespace Hotel.Core.Factories
 
         //Create Hotel
 
-        public IHotel CreateHotel(string name, int floors)
+        public IHotel CreateHotel(string name, int floors, int stars)
         {
-            return new HotelProperty(name, floors);
+            return new HotelProperty(name, floors, stars);
         }
 
         //Create Rooms

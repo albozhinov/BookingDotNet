@@ -59,7 +59,7 @@ namespace UserManagement.Models
         {
             var sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendLine($"===== Specific information for user");
+            //sb.AppendLine($"===== Specific information for user");
             sb.AppendLine($"===== Name: {this.FirstName} {this.LastName}");
             sb.AppendLine($"===== Date of birth: {this.dateOfBirth.ToString("dd/MM/yyyy")}");
             return sb.ToString();

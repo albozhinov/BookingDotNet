@@ -11,12 +11,14 @@ namespace HotelManagement.Models
     {
         private string name;
         private int floors;
+        private int stars;
         private readonly List<IAccomodationProperty> rooms;
 
-        public HotelProperty(string name, int floors)
+        public HotelProperty(string name, int floors, int stars)
         {
             this.Name = name;
             this.Floors = floors;
+            this.stars = stars;
             this.rooms = new List<IAccomodationProperty>();
         }
 
@@ -37,6 +39,16 @@ namespace HotelManagement.Models
             {
                 Validation.NumberBorderCheck(1, 15, value, Constants.numberOfFloors);
                 this.floors = value;
+            }
+        }
+
+        public int Stars
+        {
+            get => this.stars;
+            set
+            {
+                Validation.NumberBorderCheck(1, 5, value, Constants.hotelStars);
+                this.stars = value;
             }
         }
 
@@ -73,9 +85,9 @@ namespace HotelManagement.Models
             this.rooms.Add(room);
         }
 
-        public override string ToString()
-        {
+        //public override string ToString()
+        //{
             
-        }
+        //}
     }
 }
