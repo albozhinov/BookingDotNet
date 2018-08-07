@@ -11,7 +11,7 @@ namespace Utility
         {
             if (givenCap.CompareTo(minCap) == -1 || givenCap.CompareTo(maxCap) == 1)
             {
-                throw new ArgumentOutOfRangeException(errMessage);
+                throw new ArgumentException(errMessage);
             }
         }
         public static void StringLengthCheck(int minCap, int maxCap, string givenMes, string errMessage)
@@ -27,7 +27,7 @@ namespace Utility
 
             if (Comparer<T>.Default.Compare(givenNum, default(T)) < 0)
             {
-                throw new ArgumentOutOfRangeException(errMessage);
+                throw new ArgumentException(errMessage);
             }
         }
 

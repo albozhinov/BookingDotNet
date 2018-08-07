@@ -33,5 +33,7 @@
         public const string invalidUser = "User is invalid";
         public const string invalidRoom = "Room is invalid";
         public const string roomNotFound = "There are no rooms available in the hotel you selected with this parameters. Please try searching for less extras, or different dates";
+        public const string corpName = "Company name cannot be less than 3 or more than 20 characters long.";
+
     }
 }

@@ -72,5 +72,10 @@ namespace HotelManagement.Models
             Validation.CheckIfObjectIsNull(room, "Invalid room");
             this.rooms.Add(room);
         }
+
+        public override string ToString()
+        {
+            
+        }
     }
 }
