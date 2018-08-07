@@ -42,7 +42,7 @@ namespace Hotel.Core.Providers
             Assembly currentAssembly = this.GetType().GetTypeInfo().Assembly;
             var commandTypeInfo = currentAssembly.DefinedTypes
                 .Where(type => type.ImplementedInterfaces.Any(inter => inter == typeof(ICommand)))
-                .Where(type => type.Name.ToLower() == (commandName.ToLower() + "command"))
+                .Where(type => type.Name.ToLower() == (commandName.ToLower()))
                 .SingleOrDefault();
 
             if (commandTypeInfo == null)
