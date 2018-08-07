@@ -30,14 +30,13 @@ namespace Hotel.Commands.Creating
 
             try
             {
-                discount = decimal.Parse(parameters[0]);
-                name = parameters[1];
-                numberOfEmployees = int.Parse(parameters[2]);
-                // Alex will implement a method for the date parsing.
-                //registeredOn = parameters[3];
-                numberOfVisits = int.Parse(parameters[4]);
-                telephoneNumber = parameters[5];
-                email = parameters[6];
+                name = parameters[0];
+                numberOfEmployees = int.Parse(parameters[1]);
+                discount = decimal.Parse(parameters[2]);
+                registeredOn = DateTime.Now.Date;
+                numberOfVisits = int.Parse(parameters[3]);
+                telephoneNumber = parameters[4];
+                email = parameters[5];
             }
             catch
             {

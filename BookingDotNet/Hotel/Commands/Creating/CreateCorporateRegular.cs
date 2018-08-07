@@ -31,12 +31,11 @@ namespace Hotel.Commands.Creating
             try
             {
                 name = parameters[0];
-                numberOfEmployees = int.Parse(parameters[1]);
-                // Alex will implement a method for the date parsing.
-                //registeredOn = parameters[2];
-                numberOfVisits = int.Parse(parameters[3]);
-                telephoneNumber = parameters[4];
-                email = parameters[5];
+                numberOfEmployees = int.Parse(parameters[1]);                
+                registeredOn = DateTime.Now.Date;
+                numberOfVisits = int.Parse(parameters[2]);
+                telephoneNumber = parameters[3];
+                email = parameters[4];
             }
             catch
             {
