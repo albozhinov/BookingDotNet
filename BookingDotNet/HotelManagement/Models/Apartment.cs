@@ -27,6 +27,7 @@ namespace HotelManagement.Models
         }
 
         // Properties
+
         public override int Capacity
         {
             get
