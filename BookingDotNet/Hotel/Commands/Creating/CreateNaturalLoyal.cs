@@ -35,10 +35,10 @@ namespace Hotel.Commands.Creating
                 lastName = parameters[1];
                 dateOfBirth = DateTime.ParseExact(parameters[2], "d.M.yyyy", CultureInfo.InvariantCulture);
                 registeredOn = DateTime.Now;
-                numberOfVisits = int.Parse(parameters[4]);
-                telephoneNumber = parameters[5];
-                email = parameters[6];
-                discount = decimal.Parse(parameters[7]);
+                numberOfVisits = int.Parse(parameters[3]);
+                telephoneNumber = parameters[4];
+                email = parameters[5];
+                discount = decimal.Parse(parameters[6]);
             }
             catch
             {

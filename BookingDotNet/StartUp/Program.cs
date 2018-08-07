@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using UserManagement.Models;
 using Utility;
+using Hotel;
 
 
 namespace StartUp
@@ -14,10 +15,8 @@ namespace StartUp
     {
         static void Main(string[] args)
         {
-            
-
-
-
+            var engine = Engine.Instance;
+            engine.Start();
 
             //var hotel = new HotelProperty("Pesho", 12);
             //var room1 = new DeluxeRoom(3, 3, true, "Sea", 55, 5);
@@ -37,7 +36,9 @@ namespace StartUp
             //user.ReserveRoom(hotel, 2, "BigTV Dishwasher Garden", DateTime.Now.AddDays(3));
             //Console.WriteLine(user.ToString());
             //Console.WriteLine(room1.ToString());
+
             //Console.WriteLine(hotel.checkAvailability(2, "", DateTime.Now));
+
             //Console.WriteLine(hotel.checkAvailability(4, "BigTV Dishwasher", DateTime.Now));
             //Console.WriteLine(hotel.checkAvailability(2, "BigTV Dishwasher Garden", DateTime.Now));
             //Console.WriteLine(hotel.checkAvailability(2, "MiniBar", DateTime.Now));
