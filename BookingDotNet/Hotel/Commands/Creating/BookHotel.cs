@@ -49,7 +49,7 @@ namespace Hotel.Commands.Creating
             }
             try
             {
-                var hotel = this.engine.Extras[hotelID];
+                var hotel = this.engine.Hotels[hotelID];
             }
             catch
             {
