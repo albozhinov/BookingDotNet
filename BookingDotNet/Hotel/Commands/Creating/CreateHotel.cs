@@ -3,6 +3,7 @@ using Hotel.Core.Contracts;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Hotel.Commands.Creating
@@ -24,12 +25,14 @@ namespace Hotel.Commands.Creating
             string name;
             int floors;
             int stars;
+            List<int> roomIndexes;
 
             try
             {
                 name = parameters[0];
                 floors = int.Parse(parameters[1]);
                 stars = int.Parse(parameters[2]);
+                roomIndexes = parameters[3].Split(",").Select(x => int.Parse(x)).ToList();
             }
             catch
             {
@@ -37,6 +40,19 @@ namespace Hotel.Commands.Creating
             }
 
             var hotel = this.factory.CreateHotel(name, floors,stars);
+
+            foreach(var index in roomIndexes)
+            {
+                if (index >= this.engine.Rooms.Count)
+                {
+                    this.engine.Writer.WriteLine($"Room with ID: {index} cannot be added to the hotel, because it doesn't exist!");
+                }
+                else
+                {
+                    hotel.AddRoom(this.engine.Rooms[index]);
+                }
+            }
+            
             this.engine.Hotels.Add(hotel);
 
             return $"Hotel with ID {engine.Rooms.Count - 1} was created.";

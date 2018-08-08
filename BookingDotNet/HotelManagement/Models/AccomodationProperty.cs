@@ -113,6 +113,11 @@ namespace HotelManagement.Models
 
         public virtual void AddExtra(IExtra extra)
         {
+            Validation.CheckIfObjectIsNull(extra, Constants.invalidExtra);
+            if (this.listOfExtras.Contains(extra))
+            {
+                throw new ArgumentException("The extra already exists");
+            }
             this.listOfExtras.Add(extra);
         }
 
@@ -126,6 +131,10 @@ namespace HotelManagement.Models
             if(date < DateTime.Now.Date)
             {
                 throw new ArgumentException("You cannot save rooms for past dates");
+            }
+            else if (this.NotAvailable.Contains(date))
+            {
+                throw new ArgumentException("Reservation for this date already exists!");
             }
             this.notAvailable.Add(date.Date);
             this.notAvailable.Sort();
@@ -141,7 +150,15 @@ namespace HotelManagement.Models
             sb.AppendLine($"===== View: {this.View.ToString()}");
             sb.AppendLine($"===== Price: {this.BasePrice}");
             sb.AppendLine($"===== Extras: {String.Join(',',this.ListOfExtras.Select(x=>x.Name.ToString()).ToList())}");
-            sb.AppendLine($"===== Not available for the following dates: {String.Join("| ", this.NotAvailable.Select(x => x.ToString("dd/MM/yyyy")))}");
+            if(this.NotAvailable.Count == 0)
+            {
+                sb.AppendLine("===== No reservations made for this room.");
+            }
+            else
+            {
+                sb.AppendLine($"===== Not available for the following dates: {String.Join("| ", this.NotAvailable.Select(x => x.ToString("dd/MM/yyyy")))}");
+            }
+            
             return sb.ToString();
 
         }

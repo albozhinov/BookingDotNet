@@ -4,11 +4,12 @@ using Hotel.Core.Factories;
 using HotelManagement.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddExtra
+    class AddExtra : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
@@ -22,21 +23,39 @@ namespace Hotel.Commands.Creating
         public string Execute(IList<string> parameters)
         {
             int id;
-            string extra;
+            int roomIndex;
 
             try
             {
                 id = int.Parse(parameters[0]);
-                extra = parameters[1];
+                roomIndex = int.Parse(parameters[1]);
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateApartment command parameters.");
+                throw new ArgumentException("Failed to parse AddExtra command parameters.");
+            }
+            try
+            {
+                var room = this.engine.Rooms[roomIndex];
+            }
+            catch
+            {
+                throw new ArgumentException("Invalid room!");
+            }
+            try
+            {
+                var extra = this.engine.Extras[id];
+            }
+            catch
+            {
+                throw new ArgumentException("Invalid extra!");
             }
 
-            var extra = this.factory.AddExtra(id,extra);
-            this.engine.Rooms.Add(apartment);
+            this.engine.Rooms[roomIndex].AddExtra(this.engine.Extras[id]);
+            
+           
 
-            return $"Apartment with ID {engine.Rooms.Count - 1} was created.";
+            return $"{this.engine.Extras[id].Name.ToString()} added to room with ID: {roomIndex}";
         }
+    }
 }

@@ -1,4 +1,5 @@
-﻿using HotelManagement.Contracts;
+﻿using HotelManagement.Common;
+using HotelManagement.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,5 +22,7 @@ namespace Hotel.Core.Contracts
         IList<IHotel> Hotels { get; }
 
         IList<IAccomodationProperty> Rooms { get; }
+
+        IList<IExtra> Extras { get; }
     }
 }

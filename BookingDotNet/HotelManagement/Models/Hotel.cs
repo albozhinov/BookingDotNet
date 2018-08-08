@@ -60,7 +60,7 @@ namespace HotelManagement.Models
 
         public IAccomodationProperty checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
-            var extrasList = extras.Split(' ').ToList();
+            var extrasList = extras.Split(',').ToList();
             var roomsAvailable = new List<IAccomodationProperty>();
             foreach (var room in this.rooms)
             {
@@ -92,6 +92,18 @@ namespace HotelManagement.Models
             sb.AppendLine($"=== Information for hotel: {this.Name}");
             sb.AppendLine($"===== Stars: {this.Stars} *");
             sb.AppendLine($"===== Number of floors: {this.Floors}");
+            if(this.Rooms.Count == 0)
+            {
+                sb.AppendLine("===== No rooms added in this hotel.");
+            }
+            else
+            {
+                sb.AppendLine("===== Rooms:");
+                foreach (var room in this.Rooms)
+                {
+                    sb.AppendLine(room.ToString());
+                }
+            }
             return sb.ToString();
         }
     }
