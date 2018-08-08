@@ -34,6 +34,7 @@ namespace HotelManagement.Models
             set
             {
                 Validation.NumberBorderCheck(1, 6, value, Constants.apartmentBeds);
+                base.Beds = value;
             }
         }
 
