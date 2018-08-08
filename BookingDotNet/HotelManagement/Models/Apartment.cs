@@ -28,6 +28,15 @@ namespace HotelManagement.Models
 
         // Properties
 
+        public override int Beds
+        {
+            get => base.Beds;
+            set
+            {
+                Validation.NumberBorderCheck(1, 6, value, Constants.apartmentBeds);
+            }
+        }
+
         public override int Capacity
         {
             get
@@ -81,6 +90,18 @@ namespace HotelManagement.Models
         {
             Validation.NumberBorderCheck(1, 3, extra.Tier, Constants.extraTierApart);
             base.AddExtra(extra);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append(base.ToString());           
+            sb.AppendLine($"===== FullyQuipped: {this.FullyQuipped}");
+            sb.AppendLine($"===== Bedrooms: {this.Bedrooms}");
+            sb.AppendLine($"===== Bathrooms: {this.Bathrooms}");
+            sb.AppendLine($"===== OnFloor: {this.OnFloor}");
+            return sb.ToString();
         }
     }
 }
