@@ -13,7 +13,7 @@ namespace HotelManagement.Models
         private string name;
         private int floors;
         private int stars;
-        private readonly List<IAccomodationProperty> rooms;
+        private List<IAccomodationProperty> rooms;
 
         public HotelProperty(string name, int floors, int stars)
         {
@@ -55,7 +55,7 @@ namespace HotelManagement.Models
 
         public List<IAccomodationProperty> Rooms
         {
-            get => new List<IAccomodationProperty>(this.rooms);
+            get => this.rooms;
         }
 
         public IAccomodationProperty checkAvailability(int numberOfPeople, string extras, DateTime date)

@@ -22,14 +22,15 @@ namespace Hotel.Commands.Listing
         // Method
         public string Execute(IList<string> parameters)
         {
-            var rooms = this.engine.Rooms;
+            int hotelId = int.Parse(parameters[0]);
 
-            if (rooms.Count == 0)
+            if (this.engine.Hotels[hotelId].Rooms.Count == 0)
             {
-                return "There are no registered room.";
+                return "There are no registered rooms in this hotel.";
             }
 
-            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, rooms);
+            return $"Rooms in hotel: {this.engine.Hotels[hotelId].Name}" +
+                $"\n\r \n\r {string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, this.engine.Hotels[hotelId].Rooms)}";
         }
     }
 }

@@ -1,4 +1,16 @@
 createapartment 3 2 true Sea 150 true 2 2 3
+createapartment 3 2 true Sea 150 true 2 2 3
+createdeluxeRoom 1 1 false Sea 150 6
+createdeluxeRoom 1 1 false Sea 150 6
+createapartment 3 2 true Sea 150 true 2 2 3
+createHotel Telerik-Hotel 7 4
+createHotel Progress-Hotel 5 5
+addroomtohotel 0 2,3,6,7
+addroomtohotel 1 0,1,4
+inquiry 0 2 10/08/2018
+listroomsinhotel 0
+listroomsinhotel 1
+
 createCorporateLoyal Telerik 10 0.1 5 0837626482 dummy@dummy.com
 createCorporateLoyal Telerikflsajklskjafaliwrjlasfj;alsfjsl;k 10 0.1 5 0837626482 dummy@dummy.com
 createCorporateRegular Telerik 20 5 0829826482 dummy@dummy.com
@@ -6,7 +18,7 @@ createdeluxeRoom 2 1 false window 150 6
 createdeluxeRoom 2 1 false window 1000 6
 createdeluxeRoom 10 1 false window 100 6
 createdeluxeRoom 2 14 false window 100 6
-createHotel Telerik-Hotel 7
+
 createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
 createNaturalLoyal P Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
 createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 2

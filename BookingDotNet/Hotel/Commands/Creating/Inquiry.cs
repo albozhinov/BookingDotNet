@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using HotelManagement.Contracts;
+using Hotel.Commands.Contracts;
 
 namespace Hotel.Commands.Creating
 {
-    class Inquiry
+    class Inquiry : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
@@ -28,26 +30,23 @@ namespace Hotel.Commands.Creating
             {
                 
                 hotelID = int.Parse(parameters[0]);
-                numOfPeople = int.Parse(parameters[2]);
-                date = DateTime.ParseExact(parameters[3], "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);                
+                numOfPeople = int.Parse(parameters[1]);
+                date = DateTime.ParseExact(parameters[2], "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                if (date < DateTime.Now || this.engine.Hotels.Count < hotelID)
+                {
+                    throw new ArgumentException("Date or hotel ID is not valid.");
+                }
             }
-            catch
+            catch (Exception)
             {
-                throw new ArgumentException("Failed to parse AddExtra command parameters.");
-            }
-            try
-            {
-                var hotel = this.engine.Hotels[hotelID];
-            }
-            catch
-            {
-                throw new ArgumentException("Invalid hotel!");
+                throw new ArgumentException("Failed to parse Inquiry command parameters.");
             }
 
-            this.engine.Hotels[hotelID].ReserveRoom(this.engine.Hotels[hotelID], numOfPeople, extras, date);
+            List<IAccomodationProperty> roomsSelected = this.engine.Hotels[hotelID].Rooms.Where(x => x.Capacity >= numOfPeople).ToList();
 
 
-            return "Reservation sucesfully made!";
+            return $"All rooms: {String.Join("",this.engine.Hotels[hotelID].Rooms.Count)} " +
+                $"\n\rAvailable rooms: {roomsSelected.Count} \n\r{String.Join(Environment.NewLine,roomsSelected)}";
         }
 
     }
