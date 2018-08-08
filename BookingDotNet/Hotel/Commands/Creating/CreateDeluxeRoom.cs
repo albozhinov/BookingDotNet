@@ -43,6 +43,10 @@ namespace Hotel.Commands.Creating
             }
 
             var deluxeRoom = this.factory.CreateDeluxeRoom(capacity, beds, forSmokers, view, basePrice, onFloor);
+            deluxeRoom.AddExtra(this.engine.Extras[0]);
+            deluxeRoom.AddExtra(this.engine.Extras[1]);
+            deluxeRoom.AddExtra(this.engine.Extras[2]);
+            deluxeRoom.AddExtra(this.engine.Extras[7]);
             this.engine.Rooms.Add(deluxeRoom);
 
             return $"Deluxe Room with ID {engine.Rooms.Count - 1} was created.";

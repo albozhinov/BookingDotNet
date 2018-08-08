@@ -57,7 +57,7 @@ namespace HotelManagement.Models
         }
         public override void AddExtra(IExtra extra)
         {
-            Validation.NumberBorderCheck(1, 2, extra.Tier, Constants.regularRoomExtra);
+            Validation.NumberBorderCheck(1, 2, extra.Tier, Constants.extraTierdeluxeRoom);
             base.AddExtra(extra);
         }
     }

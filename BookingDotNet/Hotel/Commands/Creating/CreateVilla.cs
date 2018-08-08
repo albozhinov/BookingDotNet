@@ -47,6 +47,11 @@ namespace Hotel.Commands.Creating
             }
 
             var villa = this.factory.CreateVilla(numberOfFloors, bedrooms, bathrooms, capacity, beds, forSmokers, view, basePrice);
+            villa.AddExtra(this.engine.Extras[0]);
+            villa.AddExtra(this.engine.Extras[1]);
+            villa.AddExtra(this.engine.Extras[2]);
+            villa.AddExtra(this.engine.Extras[7]);
+            villa.AddExtra(this.engine.Extras[19]);
             this.engine.Rooms.Add(villa);
 
             return $"Villa with ID {engine.Rooms.Count - 1} was created.";
