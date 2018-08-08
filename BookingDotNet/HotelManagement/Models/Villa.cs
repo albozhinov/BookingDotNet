@@ -35,6 +35,19 @@ namespace HotelManagement.Models
             }
         }
 
+        public override int Beds
+        {
+            get
+            {
+                return base.Beds;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 8, value, Constants.villaBeds);
+                base.Beds = value;
+            }
+        }
+
         public int NumberOfFloors
         {
             get
@@ -77,6 +90,19 @@ namespace HotelManagement.Models
         public override void AddExtra(IExtra extra)
         {
             base.AddExtra(extra);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"===== Number of Floors: {this.NumberOfFloors}");
+            sb.AppendLine($"===== Bedrooms: {this.Bedrooms}");
+            sb.AppendLine($"===== Bathrooms: {this.Bathrooms}");
+
+
+            return sb.ToString();
+
         }
     }
 }
