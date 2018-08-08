@@ -17,6 +17,19 @@ namespace HotelManagement.Models
             this.OnFloor = onFloor;
         }
 
+        public override int Beds
+        {
+            get
+            {
+                return base.Beds;
+            }
+            set
+            {
+                Validation.NumberBorderCheck(1, 2, value, Constants.commonBeds);
+                base.Beds = value;
+            }
+        }
+
         public override int Capacity
         {
             get
