@@ -7,9 +7,14 @@ createHotel Telerik-Hotel 7 4
 createHotel Progress-Hotel 5 5
 addroomtohotel 0 2,3,6,7
 addroomtohotel 1 0,1,4
-inquiry 0 2 10/08/2018
+createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
+bookbyinquiry 0 1 4 14/08/2018
+inquiry 1 2 10/08/2018
 listroomsinhotel 0
 listroomsinhotel 1
+
+this.engine.Hotels[hotelID].Rooms[roomId].NotAvailable.Add(date);
+
 
 createCorporateLoyal Telerik 10 0.1 5 0837626482 dummy@dummy.com
 createCorporateLoyal Telerikflsajklskjafaliwrjlasfj;alsfjsl;k 10 0.1 5 0837626482 dummy@dummy.com
@@ -25,3 +30,12 @@ createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 2
 createNaturalReagular Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com
 createRegularRoom 2 1 false Sea 150 6
 createvilla 2 2 1 6 4 false Sea 300
+
+
+1. Create Hotel.
+2. Create Rooms.
+3. Add rooms to a hotel.
+4. Create user.
+5. Make an inquiry.
+6. Book based on inquiry.
+7. Book a first available room.
