@@ -13,6 +13,7 @@ namespace UserManagement.Contracts
         string Email { get; }
         List<IReservation> Reservations { get; }
         void ReserveRoom(IHotel hotel, int numberOfPeople, string extras, DateTime date);
-        
+        void ReserveByInquiry(IHotel hotel, IAccomodationProperty room, DateTime date);
+
     }
 }

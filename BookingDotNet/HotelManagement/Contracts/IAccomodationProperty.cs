@@ -13,6 +13,7 @@ namespace HotelManagement.Contracts
         ViewType View { get; }
         List<DateTime> NotAvailable { get; }
         List<IExtra> ListOfExtras { get; }
+        int RoomNumber { get; set; }
         decimal CalculatePrice();
         void AddExtra(IExtra extra);
         void SaveRoom(DateTime date);

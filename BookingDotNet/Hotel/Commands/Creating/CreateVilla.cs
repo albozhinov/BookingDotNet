@@ -53,7 +53,7 @@ namespace Hotel.Commands.Creating
             villa.AddExtra(this.engine.Extras[7]);
             villa.AddExtra(this.engine.Extras[19]);
             this.engine.Rooms.Add(villa);
-
+            engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
             return $"Villa with ID {engine.Rooms.Count - 1} was created.";
         }
     }

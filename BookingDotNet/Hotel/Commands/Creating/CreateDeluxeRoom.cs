@@ -48,7 +48,7 @@ namespace Hotel.Commands.Creating
             deluxeRoom.AddExtra(this.engine.Extras[2]);
             deluxeRoom.AddExtra(this.engine.Extras[7]);
             this.engine.Rooms.Add(deluxeRoom);
-
+            engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
             return $"Deluxe Room with ID {engine.Rooms.Count - 1} was created.";
         }
     }

@@ -47,7 +47,12 @@ namespace Hotel.Commands.Creating
                     Console.WriteLine($"Room with ID {index} was not added as it does not exist.");
                 }
             }
-
+            int num = addedRooms.Count;
+            for (int i = 0; i < addedRooms.Count; i++)
+            {
+                engine.Rooms[addedRooms[i]].RoomNumber = engine.Hotels[hotelID].Rooms.Count-num+1;
+                num--;
+            }
             return $"Rooms with IDs {String.Join(",",addedRooms)} added to hotel with ID: {hotelID}";
 
         }

@@ -80,6 +80,15 @@ namespace UserManagement.Models
             this.reservations.Add(new Reservation(hotel, roomFound, this, date));
 
         }
+
+        public void ReserveByInquiry(IHotel hotel, IAccomodationProperty room, DateTime date)
+        {
+            
+            Validation.CheckIfObjectIsNull(room, Constants.roomNotFound);
+
+            this.reservations.Add(new Reservation(hotel, room, this, date));
+
+        }
         public override string ToString()
         {
             var sb = new StringBuilder();

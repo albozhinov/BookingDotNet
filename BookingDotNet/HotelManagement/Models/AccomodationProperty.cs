@@ -17,6 +17,7 @@ namespace HotelManagement.Models
         private readonly List<IExtra> listOfExtras;
         private readonly List<DateTime> notAvailable;
         private decimal basePrice;
+        public int roomNumber;
 
         public AccomodationProperty(int capacity, int beds, bool forSmokers, string view, decimal basePrice)
         {
@@ -24,6 +25,7 @@ namespace HotelManagement.Models
             this.Beds = beds;
             this.forSmokers = forSmokers;
             view = view.First().ToString().ToUpper() + view.Substring(1);
+
             //Investigate why this option does not work
 
             //if (Enum.TryParse(view, out ViewType result))
@@ -81,6 +83,18 @@ namespace HotelManagement.Models
         }
 
         public ViewType View { get; set; }
+
+        public int RoomNumber
+        {
+            get
+            {
+                return this.roomNumber;
+            }
+            set
+            {
+                this.roomNumber = value;
+            }
+        }
 
         public List<IExtra> ListOfExtras
         {
@@ -144,6 +158,7 @@ namespace HotelManagement.Models
         {
             var sb = new StringBuilder();
             sb.AppendLine($"=== Information for property of type: {this.GetType().Name}");
+            sb.AppendLine($"===== Room Number: {this.roomNumber}");
             sb.AppendLine($"===== Capacity: {this.Capacity}");
             sb.AppendLine($"===== Number of beds: {this.Beds}");
             sb.AppendLine($"===== For Smokers: {((this.ForSmokers) ? "Yes":"No" )}");
