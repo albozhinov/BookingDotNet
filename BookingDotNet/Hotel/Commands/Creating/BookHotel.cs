@@ -58,7 +58,7 @@ namespace Hotel.Commands.Creating
 
             this.engine.Clients[userID].ReserveRoom(this.engine.Hotels[hotelID], numOfPeople, extras, date);
 
-            return "Reservation sucesfully made!";
+            return "Reservation successfully made!";
         }
     }
 }

@@ -31,11 +31,19 @@ namespace Utility
             }
         }
 
-        public static void CheckIfObjectIsNull(object obj, string errMessage)
+        public static void CheckIfObjectIsNull(object obj, string ex)
         {
             if (obj == null)
             {
-                throw new ArgumentNullException(errMessage);
+                throw new ArgumentException(ex);
+            }
+        }
+
+        public static void CheckIfObjectIsNull(object obj)
+        {
+            if (obj == null)
+            {
+                throw new RoomNullException("No room found");
             }
         }
         public static void isNumber (string givenNum, string errMessage)

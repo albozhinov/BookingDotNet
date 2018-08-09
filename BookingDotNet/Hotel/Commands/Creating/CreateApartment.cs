@@ -54,7 +54,7 @@ namespace Hotel.Commands.Creating
             apartment.AddExtra(this.engine.Extras[2]);
             apartment.AddExtra(this.engine.Extras[7]);
             this.engine.Rooms.Add(apartment);
-            
+            this.engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
 
             return $"Apartment with ID {engine.Rooms.Count - 1} was created.";
         }

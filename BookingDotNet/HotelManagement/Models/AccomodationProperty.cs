@@ -150,8 +150,10 @@ namespace HotelManagement.Models
             {
                 throw new ArgumentException("Reservation for this date already exists!");
             }
-            this.notAvailable.Add(date.Date);
-            this.notAvailable.Sort();
+            
+                this.notAvailable.Add(date.Date);
+                this.notAvailable.Sort();
+            
         }
 
         public override string ToString()

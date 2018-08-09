@@ -41,7 +41,7 @@ namespace Hotel
             }
         }
 
-        // Property dependencty injection not validated for simplicity
+        // Property dependency injection not validated for simplicity
         public IReader Reader { get; set; }        
 
         public IWriter Writer { get ; set; }

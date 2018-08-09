@@ -49,9 +49,8 @@ namespace Hotel.Commands.Creating
             }
             engine.Rooms[roomId].SaveRoom(date);
             this.engine.Clients[userID].ReserveByInquiry(this.engine.Hotels[hotelID], this.engine.Rooms[roomId], date);
-            
 
-            return "Reservation sucesfully made!";
+            return "Reservation successfully made!";
         }
     }
 }

@@ -75,7 +75,7 @@ namespace UserManagement.Models
         {
             IAccomodationProperty roomFound = hotel.checkAvailability(numberOfPeople, extras, date);
 
-            Validation.CheckIfObjectIsNull(roomFound, Constants.roomNotFound);
+            Validation.CheckIfObjectIsNull(roomFound);
 
             this.reservations.Add(new Reservation(hotel, roomFound, this, date));
 
