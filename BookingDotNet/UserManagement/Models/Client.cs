@@ -108,7 +108,8 @@ namespace UserManagement.Models
                     sb.AppendLine(reservation.ToString());
                 }
             }
-            return sb.ToString();
+            
+            return sb.ToString().Trim();
         }
     }
 }

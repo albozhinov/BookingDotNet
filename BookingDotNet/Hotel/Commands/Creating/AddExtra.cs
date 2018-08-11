@@ -45,12 +45,16 @@ namespace Hotel.Commands.Creating
             try
             {
                 var extra = this.engine.Extras[id];
+
             }
             catch
             {
                 throw new ArgumentException("Invalid extra!");
             }
-
+            if (this.engine.Rooms[roomIndex].ListOfExtras.Contains(this.engine.Extras[id]))
+            {
+                throw new ArgumentException("Extra already exists!");
+            }
             this.engine.Rooms[roomIndex].AddExtra(this.engine.Extras[id]);
             
            

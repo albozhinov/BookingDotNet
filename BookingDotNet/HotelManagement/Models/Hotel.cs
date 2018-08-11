@@ -83,6 +83,11 @@ namespace HotelManagement.Models
         public void AddRoom(IAccomodationProperty room)
         {
             Validation.CheckIfObjectIsNull(room, "Invalid room");
+            if (this.Rooms.Contains(room))
+            {
+                
+                throw new ArgumentException($"Room {this.Rooms.IndexOf(room)} already exists in {this.Name} hotel!");
+            }
             this.rooms.Add(room);
         }
 

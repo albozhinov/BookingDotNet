@@ -21,7 +21,7 @@ namespace HotelManagement.Common
         Kitchen,
         WashingMachine,
         Dishwasher,
-        CoffeMaker,
+        CoffeeMaker,
         Cooker,
         BigTV,
         Pool,

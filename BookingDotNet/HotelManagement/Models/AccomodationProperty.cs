@@ -28,22 +28,22 @@ namespace HotelManagement.Models
 
             //Investigate why this option does not work
 
-            //if (Enum.TryParse(view, out ViewType result))
-            //{
-            //    this.view = result;
-            //}
-            //else
-            //{
-            //    throw new ArgumentException("View not valid.");
-            //}
-            try
+            if (Enum.TryParse(view, out ViewType result))
             {
-                this.View = Enum.Parse<ViewType>(view, true);
+                this.View = result;
             }
-            catch (ArgumentException)
+            else
             {
                 throw new ArgumentException("View not valid.");
             }
+            //try
+            //{
+            //    this.View = Enum.Parse<ViewType>(view, true);
+            //}
+            //catch (ArgumentException)
+            //{
+            //    throw new ArgumentException("View not valid.");
+            //}
             this.BasePrice = basePrice;
             this.listOfExtras = new List<IExtra>();
             this.notAvailable = new List<DateTime>();
@@ -82,7 +82,7 @@ namespace HotelManagement.Models
             }
         }
 
-        public ViewType View { get; set; }
+        public ViewType View { get; private set; }
 
         public int RoomNumber
         {

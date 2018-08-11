@@ -33,7 +33,7 @@ namespace Hotel.Commands.Creating
             {
                 firstName = parameters[0];
                 lastName = parameters[1];
-                dateOfBirth = DateTime.ParseExact(parameters[2], "d.M.yyyy", CultureInfo.InvariantCulture);
+                dateOfBirth = DateTime.ParseExact(parameters[2], "d/M/yyyy", CultureInfo.InvariantCulture);
                 registeredOn = DateTime.Now.Date;
                 numberOfVisits = int.Parse(parameters[3]);
                 telephoneNumber = parameters[4];

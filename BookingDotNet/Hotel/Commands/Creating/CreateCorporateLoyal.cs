@@ -30,9 +30,9 @@ namespace Hotel.Commands.Creating
 
             try
             {
-                name = parameters[0];
-                numberOfEmployees = int.Parse(parameters[1]);
-                discount = decimal.Parse(parameters[2]);
+                name = parameters[1];
+                numberOfEmployees = int.Parse(parameters[2]);
+                discount = decimal.Parse(parameters[0]);
                 registeredOn = DateTime.Now.Date;
                 numberOfVisits = int.Parse(parameters[3]);
                 telephoneNumber = parameters[4];

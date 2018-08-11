@@ -101,7 +101,7 @@ namespace HotelManagement.Models
             sb.AppendLine($"===== FullyQuipped: {this.FullyQuipped}");
             sb.AppendLine($"===== Bedrooms: {this.Bedrooms}");
             sb.AppendLine($"===== Bathrooms: {this.Bathrooms}");
-            sb.AppendLine($"===== OnFloor: {this.OnFloor}");
+            sb.AppendLine($"===== On Floor: {this.OnFloor}");
             return sb.ToString();
         }
     }

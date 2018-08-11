@@ -60,5 +60,13 @@ namespace HotelManagement.Models
             Validation.NumberBorderCheck(1, 2, extra.Tier, Constants.extraTierdeluxeRoom);
             base.AddExtra(extra);
         }
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Room is on floor number: {this.OnFloor}");
+            return sb.ToString();
+        }
     }
 }

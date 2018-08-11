@@ -31,7 +31,7 @@ namespace Hotel.Commands.Creating
                 
                 hotelID = int.Parse(parameters[0]);
                 numOfPeople = int.Parse(parameters[1]);
-                date = DateTime.ParseExact(parameters[2], "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                date = DateTime.ParseExact(parameters[2], "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 if (date < DateTime.Now || this.engine.Hotels.Count < hotelID)
                 {
                     throw new ArgumentException("Date or hotel ID is not valid.");

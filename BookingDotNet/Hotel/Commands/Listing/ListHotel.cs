@@ -29,7 +29,7 @@ namespace Hotel.Commands.Listing
                 return "There are no registered hotel.";
             }
 
-            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, hotels);
+            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine + Environment.NewLine + Environment.NewLine, hotels);
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Hotel
             this.Rooms = new List<IAccomodationProperty>();
             this.Hotels = new List<IHotel>();
             this.Clients = new List<IClient>();
-
             this.Extras = new List<IExtra>();
         }
 

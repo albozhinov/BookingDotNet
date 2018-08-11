@@ -95,7 +95,7 @@ namespace HotelManagement.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.AppendLine(base.ToString());
+            sb.Append(base.ToString());
             sb.AppendLine($"===== Number of Floors: {this.NumberOfFloors}");
             sb.AppendLine($"===== Bedrooms: {this.Bedrooms}");
             sb.AppendLine($"===== Bathrooms: {this.Bathrooms}");

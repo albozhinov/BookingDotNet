@@ -30,25 +30,41 @@ namespace Hotel.Commands.Creating
                 hotelID = int.Parse(parameters[0]);
                 roomIndexes = parameters[1].Split(",").Select(x => int.Parse(x)).ToList();
             }
-            catch (Exception)
+            catch
             {
                 throw new ArgumentException("Failed to parse AddRoomToHotel command parameters.");
             }
 
             foreach (var index in roomIndexes)
             {
-               try
+                //if(index >= this.engine.Rooms.Count)
+                //{
+                //    throw new ArgumentException($"Room with ID { index } was not added as it does not exist!");
+                //}
+                try
                 {
-                    this.engine.Hotels[hotelID].Rooms.Add(this.engine.Rooms[index]);
+                    this.engine.Hotels[hotelID].AddRoom(this.engine.Rooms[index]);
                     addedRooms.Add(index);
                 }
-                catch(Exception)
+                catch (ArgumentOutOfRangeException)
                 {
-                    Console.WriteLine($"Room with ID {index} was not added as it does not exist.");
+                    Console.WriteLine($"Room with ID { index } was not added as it does not exist!");
                 }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
             }
-                
-            return $"Rooms with IDs {String.Join(",",addedRooms)} added to hotel with ID: {hotelID}";
+            if (addedRooms.Count == 0)
+            {
+                return "No rooms added";
+            }
+            else
+            {
+                return $"Rooms with IDs {String.Join(",", addedRooms)} added to hotel with ID: {hotelID}";
+            }
 
         }
 

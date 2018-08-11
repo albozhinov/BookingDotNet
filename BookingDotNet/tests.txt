@@ -1,41 +1,23 @@
-createapartment 3 2 true Sea 150 true 2 2 3
-createapartment 3 2 true Sea 150 true 2 2 3
-createdeluxeRoom 1 1 false Sea 150 6
-createdeluxeRoom 1 1 false Sea 150 6
-createapartment 3 2 true Sea 150 true 2 2 3
-createHotel Telerik-Hotel 7 4
-createHotel Progress-Hotel 5 5
-addroomtohotel 0 2,3,6,7
-addroomtohotel 1 0,1,4
-createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
-bookbyinquiry 0 1 4 14/08/2018
-inquiry 1 2 10/08/2018
-listroomsinhotel 0
-listroomsinhotel 1
-
-this.engine.Hotels[hotelID].Rooms[roomId].NotAvailable.Add(date);
-
-
-createCorporateLoyal Telerik 10 0.1 5 0837626482 dummy@dummy.com
-createCorporateLoyal Telerikflsajklskjafaliwrjlasfj;alsfjsl;k 10 0.1 5 0837626482 dummy@dummy.com
-createCorporateRegular Telerik 20 5 0829826482 dummy@dummy.com
-createdeluxeRoom 2 1 false window 150 6
-createdeluxeRoom 2 1 false window 1000 6
-createdeluxeRoom 10 1 false window 100 6
-createdeluxeRoom 2 14 false window 100 6
-
-createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
-createNaturalLoyal P Gosho 17.05.1992 4 0398473948 tets@gosho.com 0.12
-createNaturalLoyal Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com 2
-createNaturalReagular Pesho Gosho 17.05.1992 4 0398473948 tets@gosho.com
-createRegularRoom 2 1 false Sea 150 6
-createvilla 2 2 1 6 4 false Sea 300
-
-
-1. Create Hotel.
-2. Create Rooms.
-3. Add rooms to a hotel.
-4. Create user.
-5. Make an inquiry.
-6. Book based on inquiry.
-7. Book a first available room.
+createregularroom 2 2 true City 21 3
+createregularroom 2 2 true city 51 3
+createdeluxeroom 2 2 true Sea 99 2
+createapartment 3 3 false Mountain 121 false 2 2 2
+createvilla 2 3 3 8 3 true sea 188
+createhotel Telerik 10 5 0,1,2,3
+createhotel Telerik 12 5
+createcorporateregular PeshoSoft 31 0 087878787 peshosoft@mail.bg
+createcorporateloyal 0.1 GoshoSoft 32 0 087878787 goshosoft@mail.bg
+createnaturalloyal Pesho Goshov 5/2/1999
+createnaturalloyal Pesho Goshov 5/2/1999 088888888 p.goshov@goshovo.bg
+createnaturalloyal Pesho Goshov 5/2/1999 0 088888000 p.goshov@mail.bg
+createnaturalregular Pesho Goshov 5/2/1999 0 0888888888 p.goshov@mail.bg
+createnaturalloyal Gosho Peshov 1/2/1980 2 0888888888 gosho.Peshov@gmail.com
+createnaturalloyal Gosh oPeshov 1/2/1980 2 0888888888 gosho.peshov@hmail.com 0.12
+addextra 3 0
+addroomtohotel 0 0,1,2
+createregularroom 2 2 true city 52 3
+addroomtohotel 0 4
+bookbyinquiry 2 0 3 2/12/2031
+listroomsinhotel 0  
+listclients
+listhotels

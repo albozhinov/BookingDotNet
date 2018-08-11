@@ -1,5 +1,6 @@
 ﻿using HotelManagement.Common;
 using HotelManagement.Contracts;
+using System.Text;
 using Utility;
 
 namespace HotelManagement.Models
@@ -53,6 +54,15 @@ namespace HotelManagement.Models
         {
             Validation.NumberBorderCheck(1, 1, extra.Tier, Constants.regularRoomExtra);
             base.AddExtra(extra);
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append(base.ToString());
+            sb.AppendLine($"===== Room is on floor number: {this.OnFloor}");
+            return sb.ToString();
         }
     }
 }

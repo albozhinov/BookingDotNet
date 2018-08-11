@@ -1,0 +1,18 @@
+This piece of exqusite software comes with several build-in commands, that you can use to control the software.
+
+createregularroom int capacity | int beds | bool forSmokers | string view(Sea,Mountain,City) | decimal basePrice | int onFloor
+createdeluxeroom int capacity | int beds | bool forSmokers | string view(Sea,Mountain,City) | decimal basePrice | int onFloor
+createapartment int capacity | int beds | bool forSmokers | string view(Sea,Mountain,City) | decimal basePrice | bool fullyEquipped | int bedrooms | int bathrooms | int onFloor
+createvilla int numberOfFloors | int bedrooms | int bathrooms | int capacity | int beds | bool forSmokers | string view | decimal basePrice
+createhotel string name | int floors | int stars | coma-delimated integers, representing the rooms you wish to include in the hotel
+	- use this command to create a new hotel. Disclaimer: You must add some rooms to the hotel.
+createcorporateregular string name | int numberOfEmployees | int numberOfVisits | string telephoneNumber | string email
+
+createcorporateloyal decimal discount | string name | int numberOfEmployees | int numberOfVisits | string telephoneNumber | string email
+createnaturalregular string firstName | string lastName | DateTime dd/MM/yyyy | int numberofvisits | string telephonenumber | string email
+createnaturalloyal string firstName | string lastName | DateTime dd/MM/yyyy | int numberofvisits | string telephonenumber | string email | decimal discount
+addextra int id | int roomIndex : id of the extra(number in list) / index of the room in the list of rooms
+addroomtohotel int hotelID | comma delimated room indexes
+inquiry int hotelID | int numOfPeople | DateTime in format "d/M/yyyy"
+bookbyInquiry int userID | int hotelID | int roomID | DateTime in format "d/M/yyyy"
+bookHotel int userID | int hotelID | int number of people | DateTime in format "d/M/yyyy" | string of extras delimated by ,

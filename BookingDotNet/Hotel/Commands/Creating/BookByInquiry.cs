@@ -30,7 +30,7 @@ namespace Hotel.Commands.Creating
                 userID = int.Parse(parameters[0]);
                 hotelID = int.Parse(parameters[1]);
                 roomId = int.Parse(parameters[2]);
-                date = DateTime.ParseExact(parameters[3], "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                date = DateTime.ParseExact(parameters[3], "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             }
             catch
             {

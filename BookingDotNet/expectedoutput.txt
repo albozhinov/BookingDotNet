@@ -1,0 +1,218 @@
+The base price of a room should be a number between 50 and 400.
+Regular Room with ID 0 was created.
+Deluxe Room with ID 1 was created.
+Apartment with ID 2 was created.
+Villa with ID 3 was created.
+Hotel with ID 0 was created.
+Failed to parse CreateHotel command parameters.
+Corporate Regular client with ID 0 was created.
+Corporate Loyal client with ID 1 was created.
+Failed to parse Create Natural Loyal client command parameters.
+Failed to parse Create Natural Loyal client command parameters.
+Failed to parse Create Natural Loyal client command parameters.
+Natural Regular client with ID 2 was created.
+Failed to parse Create Natural Loyal client command parameters.
+Natural Loyal client with ID 3 was created.
+Shampoo added to room with ID: 0
+Room with ID 0 was not added as it does not exist or is already added.
+Room with ID 1 was not added as it does not exist or is already added.
+Room with ID 2 was not added as it does not exist or is already added.
+No rooms added
+Regular Room with ID 4 was created.
+Rooms with IDs 4 added to hotel with ID: 0
+inquiry 0 3 2/2/2021
+All rooms: 5
+Available rooms: 2
+=== Information for property of type: Apartment
+===== Room Number: 2
+===== Capacity: 3
+===== Number of beds: 2
+===== For Smokers: No
+===== View: Mountain
+===== Price: 121
+===== Extras: MiniBar,TV,WiFi,HotTube
+===== No reservations made for this room.
+===== FullyQuipped: False
+===== Bedrooms: 2
+===== Bathrooms: 2
+===== On Floor: 2
+
+=== Information for property of type: Villa
+===== Room Number: 3
+===== Capacity: 8
+===== Number of beds: 3
+===== For Smokers: Yes
+===== View: Sea
+===== Price: 188
+===== Extras: MiniBar,TV,WiFi,HotTube,Garden
+===== No reservations made for this room.
+===== Number of Floors: 2
+===== Bedrooms: 3
+===== Bathrooms: 3
+
+Reservation successfully made!
+
+Rooms in hotel: Telerik
+
+ === Information for property of type: DeluxeRoom
+===== Room Number: 0
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: City
+===== Price: 51
+===== Extras: MiniBar,TV,WiFi,Shampoo
+===== No reservations made for this room.
+===== Room is on floor number: 3
+
+********************
+=== Information for property of type: DeluxeRoom
+===== Room Number: 1
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: Sea
+===== Price: 99
+===== Extras: MiniBar,TV,WiFi,HotTube
+===== No reservations made for this room.
+===== Room is on floor number: 2
+
+********************
+=== Information for property of type: Apartment
+===== Room Number: 2
+===== Capacity: 3
+===== Number of beds: 2
+===== For Smokers: No
+===== View: Mountain
+===== Price: 121
+===== Extras: MiniBar,TV,WiFi,HotTube
+===== No reservations made for this room.
+===== FullyQuipped: False
+===== Bedrooms: 2
+===== Bathrooms: 2
+===== On Floor: 2
+
+********************
+=== Information for property of type: Villa
+===== Room Number: 3
+===== Capacity: 8
+===== Number of beds: 3
+===== For Smokers: Yes
+===== View: Sea
+===== Price: 188
+===== Extras: MiniBar,TV,WiFi,HotTube,Garden
+===== Not available for the following dates: 02/12/2031
+
+===== Number of Floors: 2
+===== Bedrooms: 3
+===== Bathrooms: 3
+
+********************
+=== Information for property of type: DeluxeRoom
+===== Room Number: 4
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: City
+===== Price: 52
+===== Extras: MiniBar,TV,WiFi
+===== No reservations made for this room.
+===== Room is on floor number: 3
+
+== Information for user with registration email: peshosoft@mail.bg
+===== Registration date: 11/08/2018
+===== Telephone number: 087878787
+===== Visits booked: 31
+===== No reservations pending at this moment===== Company name: PeshoSoft
+===== Number of employees: 31
+
+********************
+== Information for user with registration email: goshosoft@mail.bg
+===== Registration date: 11/08/2018
+===== Telephone number: 087878787
+===== Visits booked: 32
+===== No reservations pending at this moment===== Company name: GoshoSoft
+===== Number of employees: 32
+===== Discount: 10.0%
+
+********************
+== Information for user with registration email: p.goshov@mail.bg
+===== Registration date: 11/08/2018
+===== Telephone number: 0888888888
+===== Visits booked: 0
+===== Reservations:
+======= Hotel: Telerik || Room Type: Villa || Date: 02/12/2031===== Name: Pesho Goshov
+===== Date of birth: 05/02/1999
+
+********************
+== Information for user with registration email: gosho.peshov@hmail.com
+===== Registration date: 11/08/2018
+===== Telephone number: 0888888888
+===== Visits booked: 2
+===== No reservations pending at this moment===== Name: Gosh oPeshov
+===== Date of birth: 01/02/1980
+===== Discount: 12.00%
+
+=== Information for hotel: Telerik
+===== Stars: 5 *
+===== Number of floors: 10
+===== Rooms:
+=== Information for property of type: DeluxeRoom
+===== Room Number: 0
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: City
+===== Price: 51
+===== Extras: MiniBar,TV,WiFi,Shampoo
+===== No reservations made for this room.
+===== Room is on floor number: 3
+
+=== Information for property of type: DeluxeRoom
+===== Room Number: 1
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: Sea
+===== Price: 99
+===== Extras: MiniBar,TV,WiFi,HotTube
+===== No reservations made for this room.
+===== Room is on floor number: 2
+
+=== Information for property of type: Apartment
+===== Room Number: 2
+===== Capacity: 3
+===== Number of beds: 2
+===== For Smokers: No
+===== View: Mountain
+===== Price: 121
+===== Extras: MiniBar,TV,WiFi,HotTube
+===== No reservations made for this room.
+===== FullyQuipped: False
+===== Bedrooms: 2
+===== Bathrooms: 2
+===== On Floor: 2
+
+=== Information for property of type: Villa
+===== Room Number: 3
+===== Capacity: 8
+===== Number of beds: 3
+===== For Smokers: Yes
+===== View: Sea
+===== Price: 188
+===== Extras: MiniBar,TV,WiFi,HotTube,Garden
+===== Not available for the following dates: 02/12/2031
+===== Number of Floors: 2
+===== Bedrooms: 3
+===== Bathrooms: 3
+
+=== Information for property of type: DeluxeRoom
+===== Room Number: 4
+===== Capacity: 2
+===== Number of beds: 2
+===== For Smokers: Yes
+===== View: City
+===== Price: 52
+===== Extras: MiniBar,TV,WiFi
+===== No reservations made for this room.
+===== Room is on floor number: 3
