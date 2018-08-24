@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateVilla : ICommand
+    class CreateVillaCommand : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public CreateVilla(IHotelFactory factory, IEngine engine)
+        public CreateVillaCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();

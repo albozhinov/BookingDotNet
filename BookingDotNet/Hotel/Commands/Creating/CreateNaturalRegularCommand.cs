@@ -4,15 +4,16 @@ using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateNaturalLoyal : ICommand
+    class CreateNaturalRegularCommand : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public CreateNaturalLoyal(IHotelFactory factory, IEngine engine)
+        public CreateNaturalRegularCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();
@@ -27,7 +28,6 @@ namespace Hotel.Commands.Creating
             int numberOfVisits;
             string telephoneNumber;
             string email;
-            decimal discount;
 
             try
             {
@@ -38,17 +38,16 @@ namespace Hotel.Commands.Creating
                 numberOfVisits = int.Parse(parameters[3]);
                 telephoneNumber = parameters[4];
                 email = parameters[5];
-                discount = decimal.Parse(parameters[6]);
             }
             catch
             {
-                throw new ArgumentException("Failed to parse Create Natural Loyal client command parameters.");
+                throw new ArgumentException("Failed to parse Create Natural Regular client command parameters.");
             }
 
-            var naturalLoyal = this.factory.CreateNaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
-            this.engine.Clients.Add(naturalLoyal);
+            var naturalReg = this.factory.CreateNaturalRegular(numberOfVisits, telephoneNumber, email,  firstName, lastName, dateOfBirth);
+            this.engine.Clients.Add(naturalReg);
 
-            return $"Natural Loyal client with ID {engine.Clients.Count - 1} was created.";
+            return $"Natural Regular client with ID {engine.Clients.Count - 1} was created.";
         }
     }
 }

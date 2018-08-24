@@ -7,13 +7,13 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateRegularRoom : ICommand
+    class CreateDeluxeRoomCommand : ICommand
     {
 
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public CreateRegularRoom(IHotelFactory factory, IEngine engine)
+        public CreateDeluxeRoomCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();
@@ -39,17 +39,17 @@ namespace Hotel.Commands.Creating
             }
             catch
             {
-                throw new ArgumentException("Failed to parse CreateRegularRoom command parameters.");
+                throw new ArgumentException("Failed to parse CreateDeluxeRoom command parameters.");
             }
 
-            var regularRoom = this.factory.CreateDeluxeRoom(capacity, beds, forSmokers, view, basePrice, onFloor);
-            regularRoom.AddExtra(this.engine.Extras[0]);
-            regularRoom.AddExtra(this.engine.Extras[1]);
-            regularRoom.AddExtra(this.engine.Extras[2]);
-            this.engine.Rooms.Add(regularRoom);
+            var deluxeRoom = this.factory.CreateDeluxeRoom(capacity, beds, forSmokers, view, basePrice, onFloor);
+            deluxeRoom.AddExtra(this.engine.Extras[0]);
+            deluxeRoom.AddExtra(this.engine.Extras[1]);
+            deluxeRoom.AddExtra(this.engine.Extras[2]);
+            deluxeRoom.AddExtra(this.engine.Extras[7]);
+            this.engine.Rooms.Add(deluxeRoom);
             engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
-            return $"Regular Room with ID {engine.Rooms.Count - 1} was created.";
-
+            return $"Deluxe Room with ID {engine.Rooms.Count - 1} was created.";
         }
     }
 }

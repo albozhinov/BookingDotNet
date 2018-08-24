@@ -8,12 +8,12 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddRoomToHotel: ICommand
+    class AddRoomToHotelCommand: ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public AddRoomToHotel(IHotelFactory factory, IEngine engine)
+        public AddRoomToHotelCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();
@@ -37,10 +37,7 @@ namespace Hotel.Commands.Creating
 
             foreach (var index in roomIndexes)
             {
-                //if(index >= this.engine.Rooms.Count)
-                //{
-                //    throw new ArgumentException($"Room with ID { index } was not added as it does not exist!");
-                //}
+
                 try
                 {
                     this.engine.Hotels[hotelID].AddRoom(this.engine.Rooms[index]);

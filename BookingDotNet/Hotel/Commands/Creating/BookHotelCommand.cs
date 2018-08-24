@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class BookByInquiry: ICommand
+    class BookHotelCommand : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public BookByInquiry(IHotelFactory factory, IEngine engine)
+        public BookHotelCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();
@@ -22,33 +22,41 @@ namespace Hotel.Commands.Creating
         {
             int userID;
             int hotelID;
-            int roomId;
+            int numOfPeople;
             DateTime date;
-
+            string extras;
+            
             try
             {
                 userID = int.Parse(parameters[0]);
                 hotelID = int.Parse(parameters[1]);
-                roomId = int.Parse(parameters[2]);
-                date = DateTime.ParseExact(parameters[3], "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                numOfPeople = int.Parse(parameters[2]);
+                date = DateTime.ParseExact(parameters[3], "d/M/yyyy",System.Globalization.CultureInfo.InvariantCulture);
+                extras = parameters[4];
             }
             catch
             {
-                throw new ArgumentException("Failed to parse BookByInquiry command parameters.");
+                throw new ArgumentException("Failed to parse BookHotel command parameters.");
             }
 
             try
             {
                 var user = this.engine.Clients[userID];
-                var hotel = this.engine.Hotels[hotelID];
-                var room = this.engine.Rooms[roomId];
             }
             catch
             {
-                throw new ArgumentException("Invalid user, hotel or room!");
+                throw new ArgumentException("Invalid user!");
             }
-            engine.Rooms[roomId].SaveRoom(date);
-            this.engine.Clients[userID].ReserveByInquiry(this.engine.Hotels[hotelID], this.engine.Rooms[roomId], date);
+            try
+            {
+                var hotel = this.engine.Hotels[hotelID];
+            }
+            catch
+            {
+                throw new ArgumentException("Invalid hotel!");
+            }
+
+            this.engine.Clients[userID].ReserveRoom(this.engine.Hotels[hotelID], numOfPeople, extras, date);
 
             return "Reservation successfully made!";
         }

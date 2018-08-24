@@ -8,13 +8,13 @@ using System.Linq;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateHotel : ICommand
+    class CreateHotelCommand : ICommand
     {
 
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public CreateHotel(IHotelFactory factory, IEngine engine)
+        public CreateHotelCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();

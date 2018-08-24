@@ -10,19 +10,11 @@ namespace Hotel.Core.Factories
 {
     class HotelFactory : IHotelFactory
     {
-        private static IHotelFactory instanceHolder = new HotelFactory();
 
-        private HotelFactory()
+        public HotelFactory()
         {
         }
 
-        public static IHotelFactory Instance
-        {
-            get
-            {
-                return instanceHolder;
-            }
-        }
 
         //Create Hotel
 

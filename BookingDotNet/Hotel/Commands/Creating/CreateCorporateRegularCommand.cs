@@ -7,12 +7,13 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateCorporateLoyal : ICommand
+    class CreateCorporateRegularCommand : ICommand
     {
+
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public CreateCorporateLoyal(IHotelFactory factory, IEngine engine)
+        public CreateCorporateRegularCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();
@@ -20,7 +21,6 @@ namespace Hotel.Commands.Creating
 
         public string Execute(IList<string> parameters)
         {
-            decimal discount;
             string name;
             int numberOfEmployees;
             DateTime registeredOn;
@@ -30,24 +30,22 @@ namespace Hotel.Commands.Creating
 
             try
             {
-                name = parameters[1];
-                numberOfEmployees = int.Parse(parameters[2]);
-                discount = decimal.Parse(parameters[0]);
+                name = parameters[0];
+                numberOfEmployees = int.Parse(parameters[1]);                
                 registeredOn = DateTime.Now.Date;
-                numberOfVisits = int.Parse(parameters[3]);
-                telephoneNumber = parameters[4];
-                email = parameters[5];
+                numberOfVisits = int.Parse(parameters[2]);
+                telephoneNumber = parameters[3];
+                email = parameters[4];
             }
             catch
             {
-                throw new ArgumentException("Failed to parse Create Corporate Loyal client command parameters.");
+                throw new ArgumentException("Failed to parse Create Corporate Regular client command parameters.");
             }
 
-            var corpLoyal = this.factory.CreateCorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
-            this.engine.Clients.Add(corpLoyal);
+            var corpReg = this.factory.CreateCorporateRegular(numberOfVisits, telephoneNumber, email, name, numberOfEmployees);
+            this.engine.Clients.Add(corpReg);
 
-            return $"Corporate Loyal client with ID {engine.Clients.Count - 1} was created.";
-
+            return $"Corporate Regular client with ID {engine.Clients.Count - 1} was created.";
         }
     }
 }
