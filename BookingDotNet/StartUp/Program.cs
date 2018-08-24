@@ -10,11 +10,11 @@ using Hotel;
 
 
 namespace StartUp
-{
+{   
     class Program
     {
         static void Main(string[] args)
-        {
+        {            
             var engine = Engine.Instance;
             engine.Start();
 
@@ -50,8 +50,6 @@ namespace StartUp
             //Console.WriteLine(dateOfBirth.ToString("dd.MM.yyyy"));
             //Console.WriteLine(registeredOn.ToString("dd.MM.yyyy"));
             //Console.WriteLine(yearsOld);
-
-
         }
     }
 }

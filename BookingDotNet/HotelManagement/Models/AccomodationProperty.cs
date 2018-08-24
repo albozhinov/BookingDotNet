@@ -14,8 +14,8 @@ namespace HotelManagement.Models
         private int beds;
         private readonly bool forSmokers;
         //private readonly ViewType view;
-        private readonly List<IExtra> listOfExtras;
-        private readonly List<DateTime> notAvailable;
+        protected readonly List<IExtra> listOfExtras;
+        protected readonly List<DateTime> notAvailable;
         private decimal basePrice;
         public int roomNumber;
 
@@ -121,7 +121,7 @@ namespace HotelManagement.Models
         {
             get
             {
-                return new List<DateTime>(this.notAvailable);
+                return this.notAvailable;
             }
         }
 
