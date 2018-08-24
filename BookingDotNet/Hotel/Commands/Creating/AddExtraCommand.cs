@@ -9,12 +9,12 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddExtra : ICommand
+    class AddExtraCommand : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public AddExtra(IHotelFactory factory, IEngine engine)
+        public AddExtraCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();

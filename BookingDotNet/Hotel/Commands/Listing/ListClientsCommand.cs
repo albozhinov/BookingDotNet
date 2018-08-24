@@ -6,14 +6,14 @@ using Hotel.Core.Factories;
 
 namespace Hotel.Commands.Listing
 {
-    class ListClients : ICommand
+    class ListClientsCommand : ICommand
     {
         // Fields
         private readonly IHotelFactory facotry;
         private readonly IEngine engine;
 
         // Constructor
-        public ListClients(IHotelFactory factory, IEngine engine)
+        public ListClientsCommand(IHotelFactory factory, IEngine engine)
         {
             this.facotry = factory;
             this.engine = engine;

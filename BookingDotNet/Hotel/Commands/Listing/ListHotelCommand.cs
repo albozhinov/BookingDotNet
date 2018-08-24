@@ -6,14 +6,14 @@ using Hotel.Core.Factories;
 
 namespace Hotel.Commands.Listing
 {
-    class ListRoomsInHotel : ICommand
+    class ListHotelCommand : ICommand
     {
         // Fields
         private readonly IHotelFactory facotry;
         private readonly IEngine engine;
 
         // Constructor
-        public ListRoomsInHotel(IHotelFactory factory, IEngine engine)
+        public ListHotelCommand(IHotelFactory factory, IEngine engine)
         {
             this.facotry = factory;
             this.engine = engine;
@@ -22,15 +22,14 @@ namespace Hotel.Commands.Listing
         // Method
         public string Execute(IList<string> parameters)
         {
-            int hotelId = int.Parse(parameters[0]);
+            var hotels = this.engine.Hotels;
 
-            if (this.engine.Hotels[hotelId].Rooms.Count == 0)
+            if (hotels.Count == 0)
             {
-                return "There are no registered rooms in this hotel.";
+                return "There are no registered hotel.";
             }
 
-            return $"Rooms in hotel: {this.engine.Hotels[hotelId].Name}" +
-                $"\n\r \n\r {string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine, this.engine.Hotels[hotelId].Rooms)}";
+            return string.Join(Environment.NewLine + new string('*', 20) + Environment.NewLine + Environment.NewLine + Environment.NewLine, hotels);
         }
     }
 }

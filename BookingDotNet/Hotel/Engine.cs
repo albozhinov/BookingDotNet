@@ -10,42 +10,31 @@ namespace Hotel
 {
     public class Engine : IEngine
     {
-        private static IEngine instanceHolder;
 
         private const string ExitCommand = "Exit";
         private const string CannotBeNullMessage = "cannot be null.";
 
         // private because of Singleton design pattern
-        private Engine()
+        public Engine(IReader reader, IWriter writer, IProcessor processor)
         {
-            this.Reader = new ConsoleReader();
-            this.Writer = new ConsoleWriter();
-            this.Parser = new CommandParser();
+            this.Reader = reader;
+            this.Writer = writer;
+            this.Processor = processor;
 
+            //Potentially make a data class to hold these!!!
             this.Rooms = new List<IAccomodationProperty>();
             this.Hotels = new List<IHotel>();
             this.Clients = new List<IClient>();
             this.Extras = new List<IExtra>();
         }
 
-        public static IEngine Instance
-        {
-            get
-            {
-                if (instanceHolder == null)
-                {
-                    instanceHolder = new Engine();
-                }
-                return instanceHolder;
-            }
-        }
 
-        // Property dependency injection not validated for simplicity
-        public IReader Reader { get; set; }        
+        // Property dependency injection not validated for simplicity - private setter - autofac handles this
+        public IReader Reader { get; private set; }        
 
-        public IWriter Writer { get ; set; }
+        public IWriter Writer { get ; private set; }
 
-        public IParser Parser { get; set; }
+        public IProcessor Processor { get; private set; }
 
         public IList<IClient> Clients { get; private set; }
 
@@ -68,27 +57,15 @@ namespace Hotel
                     {
                         break;
                     }
-                    this.ProcessCommand(commandAsString);
+                   var executionResult =  this.Processor.ProcessCommand(commandAsString);
+                   this.Writer.WriteLine(executionResult);
+
                 }
                 catch (Exception ex)
                 {
                     this.Writer.WriteLine(ex.Message);
                 }                
             }
-        }
-
-        private void ProcessCommand(string commandAsString)
-        {
-            if (string.IsNullOrWhiteSpace(commandAsString))
-            {
-                throw new ArgumentNullException("Command cannot be null or empty.");
-            }
-
-            var command = this.Parser.ParseCommand(commandAsString);
-            var parameters = this.Parser.ParseParameters(commandAsString);
-
-            var executionResult = command.Execute(parameters);
-            this.Writer.WriteLine(executionResult);
         }
         private void InitializeExtras()
         {

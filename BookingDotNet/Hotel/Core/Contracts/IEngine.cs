@@ -11,11 +11,11 @@ namespace Hotel.Core.Contracts
     {
         void Start();
 
-        IReader Reader { get; set; }
+        IReader Reader { get; }
 
-        IWriter Writer { get; set; }
+        IWriter Writer { get; }
 
-        IParser Parser { get; set; }
+        IProcessor Processor { get; }
 
         IList<IClient> Clients { get; }
 

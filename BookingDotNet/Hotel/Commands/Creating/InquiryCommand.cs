@@ -9,12 +9,12 @@ using Hotel.Commands.Contracts;
 
 namespace Hotel.Commands.Creating
 {
-    class Inquiry : ICommand
+    class InquiryCommand : ICommand
     {
         private readonly IHotelFactory factory;
         private readonly IEngine engine;
 
-        public Inquiry(IHotelFactory factory, IEngine engine)
+        public InquiryCommand(IHotelFactory factory, IEngine engine)
         {
             this.factory = factory ?? throw new ArgumentNullException();
             this.engine = engine ?? throw new ArgumentNullException();

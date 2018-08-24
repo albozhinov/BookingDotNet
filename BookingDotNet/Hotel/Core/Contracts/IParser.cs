@@ -7,8 +7,6 @@ namespace Hotel.Core.Contracts
 {
     public interface IParser
     {
-        ICommand ParseCommand(string fullCommand);
-
-        IList<string> ParseParameters(string fullCommand);
+        ICommand ParseCommand(string commandName);
     }
 }

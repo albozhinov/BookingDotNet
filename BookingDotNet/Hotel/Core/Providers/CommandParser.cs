@@ -1,4 +1,5 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Autofac;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
 using Hotel.Core.Factories;
 using System;
@@ -12,46 +13,16 @@ namespace Hotel.Core.Providers
 
     public class CommandParser : IParser
     {
-        // Magic, do not touch!
-        public ICommand ParseCommand(string fullCommand)
-        {
-            var commandName = fullCommand.Split(' ')[0];
-            var commandTypeInfo = this.FindCommand(commandName);
-            var command = Activator.CreateInstance(commandTypeInfo, HotelFactory.Instance, Engine.Instance) as ICommand;
+        private readonly ILifetimeScope scope;
 
-            return command;
+        public CommandParser(ILifetimeScope scope)
+        {
+            this.scope = scope;
         }
 
-        // Magic, do not touch!
-        public IList<string> ParseParameters(string fullCommand)
+        public ICommand ParseCommand(string commandName)
         {
-            var commandParts = fullCommand.Split(' ').ToList();
-            commandParts.RemoveAt(0);
-
-            if (commandParts.Count() == 0)
-            {
-                return new List<string>();
-            }
-
-            return commandParts;
-        }
-
-        // Very magic, do not even think about touching!!!
-        private TypeInfo FindCommand(string commandName)
-        {
-            Assembly currentAssembly = this.GetType().GetTypeInfo().Assembly;
-            var commandTypeInfo = currentAssembly.DefinedTypes
-                .Where(type => type.ImplementedInterfaces.Any(inter => inter == typeof(ICommand)))
-                .Where(type => type.Name.ToLower() == (commandName.ToLower()))
-                .SingleOrDefault();
-
-            if (commandTypeInfo == null)
-            {
-                throw new ArgumentException("The passed command is not found!");
-            }
-
-            return commandTypeInfo;
-
+            return scope.ResolveNamed<ICommand>(commandName.ToLower());
         }
     }
 }
