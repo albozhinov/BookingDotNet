@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,19 +9,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateCorporateRegularCommand : ICommand
+    class CreateCorporateRegularCommand : Command, ICommand
     {
 
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
-
-        public CreateCorporateRegularCommand(IHotelFactory factory, IEngine engine)
+        public CreateCorporateRegularCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             string name;
             int numberOfEmployees;
@@ -42,10 +40,10 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Corporate Regular client command parameters.");
             }
 
-            var corpReg = this.factory.CreateCorporateRegular(numberOfVisits, telephoneNumber, email, name, numberOfEmployees);
-            this.engine.Clients.Add(corpReg);
+            var corpReg = this.Factory.CreateCorporateRegular(numberOfVisits, telephoneNumber, email, name, numberOfEmployees);
+            this.Data.Clients.Add(corpReg);
 
-            return $"Corporate Regular client with ID {engine.Clients.Count - 1} was created.";
+            return $"Corporate Regular client with ID {this.Data.Clients.Count - 1} was created.";
         }
     }
 }

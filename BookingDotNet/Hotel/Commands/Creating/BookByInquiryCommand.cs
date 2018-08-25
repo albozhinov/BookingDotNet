@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,18 +9,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class BookByInquiryCommand: ICommand
+    class BookByInquiryCommand: Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public BookByInquiryCommand(IHotelFactory factory, IEngine engine)
+        public BookByInquiryCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int userID;
             int hotelID;
@@ -39,16 +38,16 @@ namespace Hotel.Commands.Creating
 
             try
             {
-                var user = this.engine.Clients[userID];
-                var hotel = this.engine.Hotels[hotelID];
-                var room = this.engine.Rooms[roomId];
+                var user = this.Data.Clients[userID];
+                var hotel = this.Data.Hotels[hotelID];
+                var room = this.Data.Rooms[roomId];
             }
             catch
             {
                 throw new ArgumentException("Invalid user, hotel or room!");
             }
-            engine.Rooms[roomId].SaveRoom(date);
-            this.engine.Clients[userID].ReserveByInquiry(this.engine.Hotels[hotelID], this.engine.Rooms[roomId], date);
+            Data.Rooms[roomId].SaveRoom(date);
+            this.Data.Clients[userID].ReserveByInquiry(this.Data.Hotels[hotelID], this.Data.Rooms[roomId], date);
 
             return "Reservation successfully made!";
         }

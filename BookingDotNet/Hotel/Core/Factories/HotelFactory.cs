@@ -8,12 +8,8 @@ using UserManagement.Contracts;
 
 namespace Hotel.Core.Factories
 {
-    class HotelFactory : IHotelFactory
+    public class HotelFactory : IHotelFactory
     {
-
-        public HotelFactory()
-        {
-        }
 
 
         //Create Hotel

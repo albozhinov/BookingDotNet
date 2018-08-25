@@ -6,21 +6,21 @@ using System.Text;
 using System.Linq;
 using HotelManagement.Contracts;
 using Hotel.Commands.Contracts;
+using Hotel.Commands.Common;
+using Hotel.Core.DataStorage;
 
 namespace Hotel.Commands.Creating
 {
-    class InquiryCommand : ICommand
+    class InquiryCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public InquiryCommand(IHotelFactory factory, IEngine engine)
+
+        public InquiryCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {            
             int hotelID;
             int numOfPeople;            
@@ -32,7 +32,7 @@ namespace Hotel.Commands.Creating
                 hotelID = int.Parse(parameters[0]);
                 numOfPeople = int.Parse(parameters[1]);
                 date = DateTime.ParseExact(parameters[2], "d/M/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                if (date < DateTime.Now || this.engine.Hotels.Count < hotelID)
+                if (date < DateTime.Now || this.Data.Hotels.Count < hotelID)
                 {
                     throw new ArgumentException("Date or hotel ID is not valid.");
                 }
@@ -42,10 +42,10 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Inquiry command parameters.");
             }
 
-            List<IAccomodationProperty> roomsSelected = this.engine.Hotels[hotelID].Rooms.Where(x => x.Capacity >= numOfPeople).ToList();
+            List<IAccomodationProperty> roomsSelected = this.Data.Hotels[hotelID].Rooms.Where(x => x.Capacity >= numOfPeople).ToList();
 
 
-            return $"All rooms: {String.Join("",this.engine.Hotels[hotelID].Rooms.Count)} " +
+            return $"All rooms: {String.Join("",this.Data.Hotels[hotelID].Rooms.Count)} " +
                 $"\n\rAvailable rooms: {roomsSelected.Count} \n\r{String.Join(Environment.NewLine,roomsSelected)}";
         }
 

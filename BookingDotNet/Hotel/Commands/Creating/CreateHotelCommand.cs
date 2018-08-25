@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -8,19 +10,15 @@ using System.Linq;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateHotelCommand : ICommand
+    class CreateHotelCommand : Command, ICommand
     {
-
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
-
-        public CreateHotelCommand(IHotelFactory factory, IEngine engine)
+        private IWriter writer;
+        public CreateHotelCommand(IHotelFactory factory, IData data, IWriter writer) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+            this.writer = writer;
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             string name;
             int floors;
@@ -39,23 +37,23 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse CreateHotel command parameters.");
             }
 
-            var hotel = this.factory.CreateHotel(name, floors,stars);
+            var hotel = this.Factory.CreateHotel(name, floors,stars);
 
             foreach(var index in roomIndexes)
             {
-                if (index >= this.engine.Rooms.Count)
+                if (index >= this.Data.Rooms.Count)
                 {
-                    this.engine.Writer.WriteLine($"Room with ID: {index} cannot be added to the hotel, because it doesn't exist!");
+                    this.writer.WriteLine($"Room with ID: {index} cannot be added to the hotel, because it doesn't exist!");
                 }
                 else
                 {
-                    hotel.AddRoom(this.engine.Rooms[index]);
+                    hotel.AddRoom(this.Data.Rooms[index]);
                 }
             }
             
-            this.engine.Hotels.Add(hotel);
+            this.Data.Hotels.Add(hotel);
 
-            return $"Hotel with ID {engine.Hotels.Count - 1} was created.";
+            return $"Hotel with ID {Data.Hotels.Count - 1} was created.";
         }
     }
 }

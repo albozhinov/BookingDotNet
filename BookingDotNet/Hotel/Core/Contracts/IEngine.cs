@@ -17,12 +17,5 @@ namespace Hotel.Core.Contracts
 
         IProcessor Processor { get; }
 
-        IList<IClient> Clients { get; }
-
-        IList<IHotel> Hotels { get; }
-
-        IList<IAccomodationProperty> Rooms { get; }
-
-        IList<IExtra> Extras { get; }
     }
 }

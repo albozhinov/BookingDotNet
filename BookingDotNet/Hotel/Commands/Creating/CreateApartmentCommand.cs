@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using HotelManagement.Common;
 using System;
@@ -8,18 +10,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateApartmentCommand : ICommand
+    class CreateApartmentCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public CreateApartmentCommand(IHotelFactory factory, IEngine engine)
+        public CreateApartmentCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int capacity;
             int beds;
@@ -48,15 +47,15 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse CreateApartment command parameters.");
             }
 
-            var apartment = this.factory.CreateApartment(capacity, beds, forSmokers, view, basePrice, fullyQuipped, bedrooms, bathrooms, onFloor);
-            apartment.AddExtra(this.engine.Extras[0]);
-            apartment.AddExtra(this.engine.Extras[1]);
-            apartment.AddExtra(this.engine.Extras[2]);
-            apartment.AddExtra(this.engine.Extras[7]);
-            this.engine.Rooms.Add(apartment);
-            this.engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
+            var apartment = this.Factory.CreateApartment(capacity, beds, forSmokers, view, basePrice, fullyQuipped, bedrooms, bathrooms, onFloor);
+            apartment.AddExtra(this.Data.Extras[0]);
+            apartment.AddExtra(this.Data.Extras[1]);
+            apartment.AddExtra(this.Data.Extras[2]);
+            apartment.AddExtra(this.Data.Extras[7]);
+            this.Data.Rooms.Add(apartment);
+            this.Data.Rooms[Data.Rooms.Count - 1].RoomNumber = Data.Rooms.Count - 1;
 
-            return $"Apartment with ID {engine.Rooms.Count - 1} was created.";
+            return $"Apartment with ID {Data.Rooms.Count - 1} was created.";
         }
     }
 }

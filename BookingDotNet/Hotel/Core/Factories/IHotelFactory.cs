@@ -6,7 +6,7 @@ using UserManagement.Contracts;
 
 namespace Hotel.Core.Factories
 {
-    interface IHotelFactory
+    public interface IHotelFactory
     {
         IHotel CreateHotel(string name, int floors, int stars);
 

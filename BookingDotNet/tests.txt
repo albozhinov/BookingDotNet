@@ -20,4 +20,4 @@ addroomtohotel 0 4
 bookbyinquiry 2 0 3 2/12/2031
 listroomsinhotel 0  
 listclients
-listhotels
+listhotel

@@ -13,14 +13,13 @@ namespace HotelManagement.Models
         private string name;
         private int floors;
         private int stars;
-        private List<IAccomodationProperty> rooms;
 
         public HotelProperty(string name, int floors, int stars)
         {
             this.Name = name;
             this.Floors = floors;
             this.stars = stars;
-            this.rooms = new List<IAccomodationProperty>();
+            this.Rooms = new List<IAccomodationProperty>();
         }
 
         public string Name
@@ -53,16 +52,13 @@ namespace HotelManagement.Models
             }
         }
 
-        public List<IAccomodationProperty> Rooms
-        {
-            get => this.rooms;
-        }
+        public List<IAccomodationProperty> Rooms { get; }
 
         public IAccomodationProperty checkAvailability(int numberOfPeople, string extras, DateTime date)
         {
             var extrasList = extras.Split(',').ToList();
             var roomsAvailable = new List<IAccomodationProperty>();
-            foreach (var room in this.rooms)
+            foreach (var room in this.Rooms)
             {
                 var roomExtras = room.ListOfExtras.Select(x => x.Name.ToString()).ToList();
 
@@ -88,7 +84,7 @@ namespace HotelManagement.Models
                 
                 throw new ArgumentException($"Room {this.Rooms.IndexOf(room)} already exists in {this.Name} hotel!");
             }
-            this.rooms.Add(room);
+            this.Rooms.Add(room);
         }
 
         public override string ToString()

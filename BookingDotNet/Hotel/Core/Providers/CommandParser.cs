@@ -22,7 +22,16 @@ namespace Hotel.Core.Providers
 
         public ICommand ParseCommand(string commandName)
         {
-            return scope.ResolveNamed<ICommand>(commandName.ToLower());
+            //Added simple validation - if command is not found, the processor will recieve null and handle the unexpected behaviour
+            try
+            {
+                return scope.ResolveNamed<ICommand>(commandName.ToLower());
+            }
+            catch
+            {
+                return null;
+            }
+
         }
     }
 }

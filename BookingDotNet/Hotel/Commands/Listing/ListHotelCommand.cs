@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using Hotel.Commands.Common;
 using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 
 namespace Hotel.Commands.Listing
 {
-    class ListHotelCommand : ICommand
+    class ListHotelCommand : Command, ICommand
     {
-        // Fields
-        private readonly IHotelFactory facotry;
-        private readonly IEngine engine;
 
         // Constructor
-        public ListHotelCommand(IHotelFactory factory, IEngine engine)
+        public ListHotelCommand(IHotelFactory factory, IData engine) : base(factory, engine)
         {
-            this.facotry = factory;
-            this.engine = engine;
+
         }
 
         // Method
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
-            var hotels = this.engine.Hotels;
+            var hotels = this.Data.Hotels;
 
             if (hotels.Count == 0)
             {

@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using HotelManagement.Common;
 using System;
@@ -9,18 +11,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddExtraCommand : ICommand
+    class AddExtraCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public AddExtraCommand(IHotelFactory factory, IEngine engine)
+        public AddExtraCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int id;
             int roomIndex;
@@ -36,7 +35,7 @@ namespace Hotel.Commands.Creating
             }
             try
             {
-                var room = this.engine.Rooms[roomIndex];
+                var room = this.Data.Rooms[roomIndex];
             }
             catch
             {
@@ -44,22 +43,22 @@ namespace Hotel.Commands.Creating
             }
             try
             {
-                var extra = this.engine.Extras[id];
+                var extra = this.Data.Extras[id];
 
             }
             catch
             {
                 throw new ArgumentException("Invalid extra!");
             }
-            if (this.engine.Rooms[roomIndex].ListOfExtras.Contains(this.engine.Extras[id]))
+            if (this.Data.Rooms[roomIndex].ListOfExtras.Contains(this.Data.Extras[id]))
             {
                 throw new ArgumentException("Extra already exists!");
             }
-            this.engine.Rooms[roomIndex].AddExtra(this.engine.Extras[id]);
+            this.Data.Rooms[roomIndex].AddExtra(this.Data.Extras[id]);
             
            
 
-            return $"{this.engine.Extras[id].Name.ToString()} added to room with ID: {roomIndex}";
+            return $"{this.Data.Extras[id].Name.ToString()} added to room with ID: {roomIndex}";
         }
     }
 }

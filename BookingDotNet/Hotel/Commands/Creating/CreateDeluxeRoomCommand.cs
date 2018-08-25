@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,19 +9,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateDeluxeRoomCommand : ICommand
+    class CreateDeluxeRoomCommand : Command, ICommand
     {
 
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
-
-        public CreateDeluxeRoomCommand(IHotelFactory factory, IEngine engine)
+        public CreateDeluxeRoomCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int capacity;
             int beds;
@@ -42,14 +40,14 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse CreateDeluxeRoom command parameters.");
             }
 
-            var deluxeRoom = this.factory.CreateDeluxeRoom(capacity, beds, forSmokers, view, basePrice, onFloor);
-            deluxeRoom.AddExtra(this.engine.Extras[0]);
-            deluxeRoom.AddExtra(this.engine.Extras[1]);
-            deluxeRoom.AddExtra(this.engine.Extras[2]);
-            deluxeRoom.AddExtra(this.engine.Extras[7]);
-            this.engine.Rooms.Add(deluxeRoom);
-            engine.Rooms[engine.Rooms.Count - 1].RoomNumber = engine.Rooms.Count - 1;
-            return $"Deluxe Room with ID {engine.Rooms.Count - 1} was created.";
+            var deluxeRoom = this.Factory.CreateDeluxeRoom(capacity, beds, forSmokers, view, basePrice, onFloor);
+            deluxeRoom.AddExtra(this.Data.Extras[0]);
+            deluxeRoom.AddExtra(this.Data.Extras[1]);
+            deluxeRoom.AddExtra(this.Data.Extras[2]);
+            deluxeRoom.AddExtra(this.Data.Extras[7]);
+            this.Data.Rooms.Add(deluxeRoom);
+            this.Data.Rooms[Data.Rooms.Count - 1].RoomNumber = Data.Rooms.Count - 1;
+            return $"Deluxe Room with ID {this.Data.Rooms.Count - 1} was created.";
         }
     }
 }

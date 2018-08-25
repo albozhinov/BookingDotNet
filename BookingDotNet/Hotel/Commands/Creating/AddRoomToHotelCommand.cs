@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -8,18 +10,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddRoomToHotelCommand: ICommand
+    class AddRoomToHotelCommand: Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public AddRoomToHotelCommand(IHotelFactory factory, IEngine engine)
+        public AddRoomToHotelCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int hotelID;
             List<int> roomIndexes;
@@ -40,7 +39,7 @@ namespace Hotel.Commands.Creating
 
                 try
                 {
-                    this.engine.Hotels[hotelID].AddRoom(this.engine.Rooms[index]);
+                    this.Data.Hotels[hotelID].AddRoom(this.Data.Rooms[index]);
                     addedRooms.Add(index);
                 }
                 catch (ArgumentOutOfRangeException)

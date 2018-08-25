@@ -23,7 +23,16 @@ namespace Hotel.Core.Providers
             var arguments = line.Split(" ").Select(x => x.ToLower()).ToList();
             var commandName = arguments[0];
             var commandArguments = arguments.Skip(1).ToList();
-            return parser.ParseCommand(commandName).Execute(commandArguments);
+            var command = parser.ParseCommand(commandName);
+            if(command == null)
+            {
+                throw new ArgumentNullException("Command not found");
+            }
+            else
+            {
+                return command.Execute(commandArguments);
+            }
+
         }
     }
 }

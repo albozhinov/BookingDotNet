@@ -2,13 +2,12 @@
 using Hotel.Commands.Contracts;
 using Hotel.Commands.Creating;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using Hotel.Core.Providers;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+
 
 namespace Hotel.Core.InjectionLogic
 {
@@ -16,6 +15,7 @@ namespace Hotel.Core.InjectionLogic
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).AsImplementedInterfaces();
             this.RegisterCoreComponents(builder);
             this.RegisterCommands(builder);
             base.Load(builder);
@@ -29,6 +29,7 @@ namespace Hotel.Core.InjectionLogic
             builder.RegisterType<ConsoleWriter>().As<IWriter>().SingleInstance();
             builder.RegisterType<CommandParser>().As<IParser>().SingleInstance();
             builder.RegisterType<CommandProcessor>().As<IProcessor>().SingleInstance();
+            builder.RegisterType<ListDataStorage>().As<IData>().SingleInstance();
         }
 
         private void RegisterCommands(ContainerBuilder builder)

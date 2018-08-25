@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -8,18 +10,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateNaturalRegularCommand : ICommand
+    class CreateNaturalRegularCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public CreateNaturalRegularCommand(IHotelFactory factory, IEngine engine)
+        public CreateNaturalRegularCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             string firstName;
             string lastName;
@@ -44,10 +43,10 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Natural Regular client command parameters.");
             }
 
-            var naturalReg = this.factory.CreateNaturalRegular(numberOfVisits, telephoneNumber, email,  firstName, lastName, dateOfBirth);
-            this.engine.Clients.Add(naturalReg);
+            var naturalReg = this.Factory.CreateNaturalRegular(numberOfVisits, telephoneNumber, email,  firstName, lastName, dateOfBirth);
+            this.Data.Clients.Add(naturalReg);
 
-            return $"Natural Regular client with ID {engine.Clients.Count - 1} was created.";
+            return $"Natural Regular client with ID {Data.Clients.Count - 1} was created.";
         }
     }
 }

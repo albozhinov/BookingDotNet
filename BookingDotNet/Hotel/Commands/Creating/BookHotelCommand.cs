@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,18 +9,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class BookHotelCommand : ICommand
+    class BookHotelCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public BookHotelCommand(IHotelFactory factory, IEngine engine)
+        public BookHotelCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             int userID;
             int hotelID;
@@ -41,7 +40,7 @@ namespace Hotel.Commands.Creating
 
             try
             {
-                var user = this.engine.Clients[userID];
+                var user = this.Data.Clients[userID];
             }
             catch
             {
@@ -49,14 +48,14 @@ namespace Hotel.Commands.Creating
             }
             try
             {
-                var hotel = this.engine.Hotels[hotelID];
+                var hotel = this.Data.Hotels[hotelID];
             }
             catch
             {
                 throw new ArgumentException("Invalid hotel!");
             }
 
-            this.engine.Clients[userID].ReserveRoom(this.engine.Hotels[hotelID], numOfPeople, extras, date);
+            this.Data.Clients[userID].ReserveRoom(this.Data.Hotels[hotelID], numOfPeople, extras, date);
 
             return "Reservation successfully made!";
         }

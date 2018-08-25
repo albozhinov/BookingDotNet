@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,18 +9,15 @@ using System.Globalization;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateNaturalLoyalCommand : ICommand
+    class CreateNaturalLoyalCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public CreateNaturalLoyalCommand(IHotelFactory factory, IEngine engine)
+        public CreateNaturalLoyalCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             string firstName;
             string lastName;
@@ -45,10 +44,10 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Natural Loyal client command parameters.");
             }
 
-            var naturalLoyal = this.factory.CreateNaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
-            this.engine.Clients.Add(naturalLoyal);
+            var naturalLoyal = this.Factory.CreateNaturalLoyal(numberOfVisits, telephoneNumber, email, firstName, lastName, dateOfBirth, discount);
+            this.Data.Clients.Add(naturalLoyal);
 
-            return $"Natural Loyal client with ID {engine.Clients.Count - 1} was created.";
+            return $"Natural Loyal client with ID {this.Data.Clients.Count - 1} was created.";
         }
     }
 }

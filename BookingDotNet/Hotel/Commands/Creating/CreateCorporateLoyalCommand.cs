@@ -1,5 +1,7 @@
-﻿using Hotel.Commands.Contracts;
+﻿using Hotel.Commands.Common;
+using Hotel.Commands.Contracts;
 using Hotel.Core.Contracts;
+using Hotel.Core.DataStorage;
 using Hotel.Core.Factories;
 using System;
 using System.Collections.Generic;
@@ -7,18 +9,15 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateCorporateLoyalCommand : ICommand
+    class CreateCorporateLoyalCommand : Command, ICommand
     {
-        private readonly IHotelFactory factory;
-        private readonly IEngine engine;
 
-        public CreateCorporateLoyalCommand(IHotelFactory factory, IEngine engine)
+        public CreateCorporateLoyalCommand(IHotelFactory factory, IData data) : base(factory, data)
         {
-            this.factory = factory ?? throw new ArgumentNullException();
-            this.engine = engine ?? throw new ArgumentNullException();
+
         }
 
-        public string Execute(IList<string> parameters)
+        public override string Execute(IList<string> parameters)
         {
             decimal discount;
             string name;
@@ -43,10 +42,10 @@ namespace Hotel.Commands.Creating
                 throw new ArgumentException("Failed to parse Create Corporate Loyal client command parameters.");
             }
 
-            var corpLoyal = this.factory.CreateCorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
-            this.engine.Clients.Add(corpLoyal);
+            var corpLoyal = this.Factory.CreateCorporateLoyal(numberOfVisits, telephoneNumber, email, name, numberOfEmployees, discount);
+            this.Data.Clients.Add(corpLoyal);
 
-            return $"Corporate Loyal client with ID {engine.Clients.Count - 1} was created.";
+            return $"Corporate Loyal client with ID {Data.Clients.Count - 1} was created.";
 
         }
     }
