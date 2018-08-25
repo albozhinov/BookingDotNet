@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddExtraCommand : Command, ICommand
+    public class AddExtraCommand : Command, ICommand
     {
 
         public AddExtraCommand(IHotelFactory factory, IData data) : base(factory, data)

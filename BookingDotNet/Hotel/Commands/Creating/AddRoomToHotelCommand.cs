@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class AddRoomToHotelCommand: Command, ICommand
+    public class AddRoomToHotelCommand: Command, ICommand
     {
 
         public AddRoomToHotelCommand(IHotelFactory factory, IData data) : base(factory, data)

@@ -3,8 +3,7 @@ using HotelManagement.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace BookingDotNet.Tests.HotelManagement.Tests.Models.AccomodationPropertyTests
 {

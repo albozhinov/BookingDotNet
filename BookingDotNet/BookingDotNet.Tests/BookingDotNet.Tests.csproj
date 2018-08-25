@@ -16,6 +16,10 @@
   <ItemGroup>
     <ProjectReference Include="..\HotelManagement\HotelManagement.csproj" />
     <ProjectReference Include="..\Hotel\Hotel.csproj" />
+<<<<<<< HEAD
+=======
+    <ProjectReference Include="..\UserManagement\UserManagement.csproj" />
+>>>>>>> 64e3b0d3a4ee0355c721e6bd5d4d509b0cdf7343
     <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateNaturalLoyalCommand : Command, ICommand
+    public class CreateNaturalLoyalCommand : Command, ICommand
     {
 
         public CreateNaturalLoyalCommand(IHotelFactory factory, IData data) : base(factory, data)

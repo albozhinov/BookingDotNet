@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateNaturalRegularCommand : Command, ICommand
+    public class CreateNaturalRegularCommand : Command, ICommand
     {
 
         public CreateNaturalRegularCommand(IHotelFactory factory, IData data) : base(factory, data)

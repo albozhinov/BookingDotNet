@@ -8,7 +8,7 @@ using Hotel.Core.Factories;
 
 namespace Hotel.Commands.Listing
 {
-    class ListClientsCommand : Command, ICommand
+    public class ListClientsCommand : Command, ICommand
     {
 
         // Constructor
