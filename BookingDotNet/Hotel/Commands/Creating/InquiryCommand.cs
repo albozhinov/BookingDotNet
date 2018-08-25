@@ -11,7 +11,7 @@ using Hotel.Core.DataStorage;
 
 namespace Hotel.Commands.Creating
 {
-    class InquiryCommand : Command, ICommand
+    public class InquiryCommand : Command, ICommand
     {
 
 

@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateHotelCommand : Command, ICommand
+    public class CreateHotelCommand : Command, ICommand
     {
         private IWriter writer;
         public CreateHotelCommand(IHotelFactory factory, IData data, IWriter writer) : base(factory, data)

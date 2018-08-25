@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Hotel.Commands.Creating
 {
-    class CreateDeluxeRoomCommand : Command, ICommand
+    public class CreateDeluxeRoomCommand : Command, ICommand
     {
 
         public CreateDeluxeRoomCommand(IHotelFactory factory, IData data) : base(factory, data)
