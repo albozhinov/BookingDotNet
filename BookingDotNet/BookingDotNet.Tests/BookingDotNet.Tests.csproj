@@ -15,12 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HotelManagement\HotelManagement.csproj" />
+    <ProjectReference Include="..\Hotel\Hotel.csproj" />
     <ProjectReference Include="..\Utility\Utility.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="HotelManagement.Tests\CommandsTests\CreatingTests\" />
-    <Folder Include="HotelManagement.Tests\CommandsTests\ListingTests\" />
   </ItemGroup>
 
 </Project>
