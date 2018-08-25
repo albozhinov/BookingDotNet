@@ -18,4 +18,9 @@
     <ProjectReference Include="..\Utility\Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="HotelManagement.Tests\CommandsTests\CreatingTests\" />
+    <Folder Include="HotelManagement.Tests\CommandsTests\ListingTests\" />
+  </ItemGroup>
+
 </Project>
