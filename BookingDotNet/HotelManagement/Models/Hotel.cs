@@ -18,7 +18,7 @@ namespace HotelManagement.Models
         {
             this.Name = name;
             this.Floors = floors;
-            this.stars = stars;
+            this.Stars = stars;
             this.Rooms = new List<IAccomodationProperty>();
         }
 
@@ -81,7 +81,6 @@ namespace HotelManagement.Models
             Validation.CheckIfObjectIsNull(room, "Invalid room");
             if (this.Rooms.Contains(room))
             {
-                
                 throw new ArgumentException($"Room {this.Rooms.IndexOf(room)} already exists in {this.Name} hotel!");
             }
             this.Rooms.Add(room);
