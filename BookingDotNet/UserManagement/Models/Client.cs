@@ -89,6 +89,7 @@ namespace UserManagement.Models
             this.reservations.Add(new Reservation(hotel, room, this, date));
 
         }
+
         public override string ToString()
         {
             var sb = new StringBuilder();

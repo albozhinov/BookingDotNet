@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Utility
 {
-    class RoomNullException: ApplicationException
+    public class RoomNullException: ApplicationException
     {
         public RoomNullException(string msg)
             : base(msg)
