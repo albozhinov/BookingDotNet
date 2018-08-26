@@ -1,8 +1,8 @@
 # Team Name: Pichovete
 # Team Members:
     - Drago
-    - Teo
     - Alex(Bozhinov)
+    - Teo
 
 # Booking API Documentation
 
