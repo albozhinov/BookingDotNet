@@ -1,5 +1,6 @@
 ﻿using BookingDotNet.Tests.HotelManagement.Tests.Models.Mocks;
 using HotelManagement.Contracts;
+using HotelManagement.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -14,8 +15,8 @@ namespace BookingDotNet.Tests.HotelManagement.Tests.Models.Hotel
         [TestMethod]
         public void AddRoom_Should_AddRoom_To_RoomsList()
         {
-            var hotel = new HotelMock("Telerik",5,4);
-            var mockedRoom = new Mock <IAccomodationProperty>();
+            var hotel = new HotelMock("Telerik", 5, 4);
+            var mockedRoom = new Mock<IAccomodationProperty>();
             hotel.AddRoom(mockedRoom.Object);
 
             Assert.IsTrue(hotel.Rooms.Count == 1);
@@ -36,8 +37,8 @@ namespace BookingDotNet.Tests.HotelManagement.Tests.Models.Hotel
         {
             var hotel = new HotelMock("Telerik", 5, 4);
             IAccomodationProperty mockedRoom = null;
-            
-            Assert.ThrowsException<ArgumentException>(()=>hotel.AddRoom(mockedRoom));
+
+            Assert.ThrowsException<ArgumentException>(() => hotel.AddRoom(mockedRoom));
         }
     }
 }
