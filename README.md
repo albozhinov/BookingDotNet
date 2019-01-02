@@ -1,31 +1,5 @@
 # C\# OOP Teamwork Assignment - .NET Alpha Jul'18
 
-## Project Description
-
-Design and implement an object-oriented application by choice. Here are some suggestions:
-- A game:
-  - The world can be fantasy, sci-fi, modern, etc
-  - You may have one or more heroes, gaining experience, having skills, wearing items, etc
-  - You may have one or more players, fighting against a computer or against each other
-  - You may have enemies like creatures, machines, warriors, etc
-  - You may have items like swords, guns, armor, space-suits, etc
-  - You may have skills like double-damage, teleportation, etc
-- A line-of-business application:
-  - TODO list application, TODOs can have a deadline, priorities, types etc
-  - Calendar application, keeping meetings with places and date, having notifications, etc
-  - Social network, with different users, different roles, friend list, user information, chat between users, groups of users, etc
-  - A chat application, supporting user-to-user chats, channels, group chats, friends-list, starred users, etc
-  - Application for Insurance company
-  - Informational system for Postal services (sending & receiving mails, packages, etc)
-  - Encyclopedia game
-  - Geocaching game
-  - “Tourist guide” informational system
-  - Cooking e-book
-  - Personal accounting system
-  - Personal medical cart
-  - Events scheduling system
-
-
 ## General Requirements
 Please define and implement the following object-oriented assets in your project:
 
@@ -71,12 +45,45 @@ If you have a chance, time and a suitable situation, you might add some of the f
 - Obligatory upload your projects in the Showcase system (http://best.telerikacademy.com/)
 - Optionally provide a PowerPoint presentation designed for the project defense
 
-## Public Project Defense
-Each team will have to deliver a public defense of its work in front of the trainers and give a short presentation in front of the other students. You will have around 30 minutes for the following:
-- Demonstrate the application
-- Show the class diagram
-- Show the source code in the Git web-based source code browser.
-- Show the commits logs to confirm that each team member has contributed.
+# C\# High Quality Code & Design Patterns Teamwork Assignment - .NET Alpha Jul'2018
 
-## Give Feedback about Your Teammates
-You will be invited to provide feedback about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so **take it seriously and be honest**.
+## General Requirements
+
+Please define and implement the following in your project:
+
+- The **OOP** principles (where applicable)
+  - Inheritance
+  - Encapsulation
+  - Abstraction
+  - Polymorphism
+
+- The **SOLID** principles (where applicable)
+  - Single responsibility
+  - Open/closed
+  - Liskov substitution
+  - Interface segregation
+  - Dependency inversion
+
+- Dependency inversion container (using Autofac)
+  - Favor composition over inheritance
+  - Introduce object lifetime management
+  - Introduce convention based binding
+
+- Unit tests
+  - Unisolated tests will be looked upon as **invalid**!
+  - Each member must introduce **at least 10** unit tests that use **both**:
+    - **MSTest** (or other testing framework)
+    - **Moq** (or other mocking framework)
+
+- Project managment
+  - Use a Kanban board to organize your work (Trello, for example)
+  - Try to estimate each user story by writing down expected time, actual time and optionally story points.
+  - Active team communication is the key to success!
+
+
+## Additional Requirements
+
+- Follow the **best practices for OO design**: use data encapsulation, use exception handling properly, abstraction and polymorphism properly, follow the principles of strong cohesion and loose coupling
+- Follow the **best practices for SOLID design**
+- Obligatory use Git to keep your source code and for team collaboration (you might use https://github.com/)
+- Provide a class diagram (to visualize all types)
